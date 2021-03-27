@@ -1,12 +1,9 @@
-import React from 'react';
-
-const history = () => {
-    return(
+const History = (props) => {
+    return (
         <div>
-        
+            <h1>HISTORY PAGE</h1>
         </div>
-    
     )
 }
 
-export default history
+export default History;

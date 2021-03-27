@@ -1,7 +1,7 @@
-const User = () => {
+const User = (props) => {
     return (
         <div>
-            <h1>USER PAGE</h1>
+            <h1>USER PAGE1</h1>
         </div>
     )
 }

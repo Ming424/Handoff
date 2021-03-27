@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState} from 'react';
 import './App.css';
 import Button from '@material-ui/core/Button';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
@@ -9,12 +9,80 @@ import GradeIcon from '@material-ui/icons/Grade';
 import TopNav from './component/topNav';
 import logo3 from './logo.png';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 /** PAGE */
+import History from './page/History';
 import User from './page/User';
 
  
 function App() {
+
+  // STATE
+  const [user] = useState({
+    name: "Tim",
+    userId: "8523",
+    profileImg: "",
+  })
+
+  // PUT DUMMY ITEM HERE
+  // name, img, storeName, storeAddress, orderNum, quantity, pickUpTime, status, travalingTime, trafficStatus
+  const [item] = useState([
+    {
+      name:"Samsung Monitor", 
+      img:"", 
+      storeName:"Miscrosoft Store", 
+      storeAddress:"Microsoft Store Rive-Sud", 
+      orderNum:"8904535", 
+      quantity:"1", 
+      pickUpTime:"2:00 PM, Feb 24, 2021", 
+      status:"Ready", 
+      travalingTime:"23", 
+      trafficStatus:"Fluent"
+    },
+    {
+      name:"Samsung Monitor", 
+      img:"", 
+      storeName:"Miscrosoft Store", 
+      storeAddress:"Microsoft Store Rive-Sud", 
+      orderNum:"8904535", 
+      quantity:"1", 
+      pickUpTime:"2:00 PM, Feb 24, 2021", 
+      status:"Ready", 
+      travalingTime:"23", 
+      trafficStatus:"Fluent"
+    },
+  ])
+
+  // History here
+  const [hisItem] = useState([
+    {
+      name:"Samsung Monitor", 
+      img:"", 
+      storeName:"Miscrosoft Store", 
+      storeAddress:"Microsoft Store Rive-Sud", 
+      orderNum:"8904535", 
+      quantity:"1", 
+      pickUpTime:"2:00 PM, Feb 24, 2021", 
+      status:"Ready", 
+      travalingTime:"23", 
+      trafficStatus:"Fluent"
+    },
+    {
+      name:"Samsung Monitor", 
+      img:"", 
+      storeName:"Miscrosoft Store", 
+      storeAddress:"Microsoft Store Rive-Sud", 
+      orderNum:"8904535", 
+      quantity:"1", 
+      pickUpTime:"2:00 PM, Feb 24, 2021", 
+      status:"Ready", 
+      travalingTime:"23", 
+      trafficStatus:"Fluent"
+    },
+  ])
+
 
 
   // MAIN
@@ -24,10 +92,11 @@ function App() {
       <div className="App">
         <TopNav styl={style_TopNav}></TopNav>
         
-
         <Button variant="contained" color="primary">
-          Hello World
+              Hello World
         </Button>
+    
+        <>
         <img src={logo3} style={{height:'100px'}}/>
         <h1>TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</h1>
         <h1>TEST</h1>
@@ -49,20 +118,24 @@ function App() {
         <h1>TEST</h1>
         <h1>TEST</h1>
         <h1 >LASTTEST</h1>
+      </>
 
-        <Route path='/' exact render={(props) => (
-          <>
+      <History hisItem={hisItem} />
+      <User user={user} />
 
-          </>
 
-        )} />
+      <Route path='/' exact />
+      <Route path='/history' component={History} />
+      <Route path='/user' component={User} />
 
-        <div style={{marginBottom:"100px"}} />
-        <BottomNavigation showLabels style={style_BottomNav}>
-          <BottomNavigationAction label="Dashboard" icon={<GradeIcon />} />
-          <BottomNavigationAction label="History" icon={<RestoreIcon />} />
-          <BottomNavigationAction label="Me" icon={<PersonIcon />}  />
-        </BottomNavigation>
+      {/* BOTTO NAV */}
+      <div style={{marginBottom:"100px"}} />
+      <BottomNavigation showLabels style={style_BottomNav}>
+        <BottomNavigationAction label="Dashboard" icon={<GradeIcon />} to='/' />
+        <BottomNavigationAction label="History" icon={<RestoreIcon />} to='/history' />
+        <BottomNavigationAction label="Me" icon={<PersonIcon />} to='/user' />
+      </BottomNavigation>
+
       </div>
     </Router>
   );
