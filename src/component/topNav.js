@@ -14,7 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import logo from '../logo.png';
+import logo from '../asset/logo.png';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -166,14 +166,16 @@ export default function TopNav() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="fixed">
+      <AppBar position="fixed" color='#FFD700'  elevation={0}
+      style={{ background: '#FFD700', alignItems: 'center' }}
+      >
         <Toolbar>
 
           <Typography className={classes.title} variant="h6" noWrap>
             Handoff
           </Typography>
 
-          <div style={{width:'80%'}} className={classes.search}>
+          <div style={{width:'50%'}} className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>

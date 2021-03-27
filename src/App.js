@@ -7,7 +7,7 @@ import RestoreIcon from '@material-ui/icons/Restore';
 import PersonIcon from '@material-ui/icons/Person';
 import GradeIcon from '@material-ui/icons/Grade';
 import TopNav from './component/topNav';
-import logo3 from './logo.png';
+import logo from './asset/logo.png';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -97,7 +97,7 @@ function App() {
         </Button>
     
         <>
-        <img src={logo3} style={{height:'100px'}}/>
+        <img src={logo} style={{height:'100px'}}/>
         <h1>TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</h1>
         <h1>TEST</h1>
         <h1>TEST</h1>
@@ -130,7 +130,7 @@ function App() {
 
       {/* BOTTO NAV */}
       <div style={{marginBottom:"100px"}} />
-      <BottomNavigation showLabels style={style_BottomNav}>
+      <BottomNavigation showLabels style={style_BottomNav} >
         <BottomNavigationAction label="Dashboard" icon={<GradeIcon />} to='/' />
         <BottomNavigationAction label="History" icon={<RestoreIcon />} to='/history' />
         <BottomNavigationAction label="Me" icon={<PersonIcon />} to='/user' />
