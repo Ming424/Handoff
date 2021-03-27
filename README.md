@@ -1,8 +1,8 @@
 # Handoff
-Handoff - A React Native project for SOEN 357 (User Interface Design)
+Handoff - A React project for SOEN 357 (User Interface Design)
 
-Download Expo to your phone
+Clone
 
-Do npm start
+npm i
 
-Scan the QR with the app
+npm start
