@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom';
 /** PAGE */
 import History from './page/History';
 import User from './page/User';
+import ConfirmationPage from './component/confirmationPage';
 
  
 function App() {
@@ -127,6 +128,7 @@ function App() {
       <Route path='/' exact />
       <Route path='/history' component={History} />
       <Route path='/user' component={User} />
+      <Route path='/confirmation' component={ConfirmationPage} />
 
       {/* BOTTO NAV */}
       <div style={{marginBottom:"100px"}} />
