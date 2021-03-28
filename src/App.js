@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 /** PAGE */
 import History from './page/History';
 import User from './page/User';
-import ConfirmationPage from './component/confirmationPage';
+import ConfirmationPage from './page/Confirmation';
 
  
 function App() {
