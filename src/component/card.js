@@ -15,10 +15,12 @@ import CheckCircleRoundedIcon from '@material-ui/icons/CheckCircleRounded';
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
 import item_placeholder from '../asset/item_placeholder.png'
 import store_placeholder from '../asset/store_placeholder.png'
+import { grey } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
+    backgroundColor: grey[100],
   },
   media: {
     height: 0,
@@ -66,7 +68,7 @@ export default function StoreCard() {
   };
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} variant="elevation">
       <CardHeader
         title= {store.storeName}
         subheader={store.totalAmount}
