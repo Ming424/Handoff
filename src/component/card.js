@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -10,10 +10,11 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import CheckCircleRoundedIcon from '@material-ui/icons/CheckCircleRounded';
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
+import item_placeholder from '../asset/item_placeholder.png'
+import store_placeholder from '../asset/store_placeholder.png'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,7 +35,8 @@ const useStyles = makeStyles((theme) => ({
     transform: 'rotate(180deg)',
   },
   avatar: {
-    backgroundColor: red[500],
+    width: theme.spacing(7),
+    height: theme.spacing(7),
   },
 }));
 
@@ -47,12 +49,12 @@ function createItemOrder( itemName, itemId, img, quantity, price){
       return { itemName, itemId, img, quantity, price};
   }
   
-  const store = createStoreData("Microsoft Store", "img", "Microsoft Store Rive-Sud", "1:00 PM, Feb 24, 2021", "8904535", "Ready", "23", "Fluid", "3000");
+  const store = createStoreData("Microsoft Store", "", "Microsoft Store Rive-Sud", "1:00 PM, Feb 24, 2021", "8904535", "Ready", "23", "Fluid", "3000");
 
   const itemMap = [
-    createItemOrder("Samsung Monitor", "123456","img", 1, 300), 
-    createItemOrder("Mouse", "34567","img", 1, 50),
-    createItemOrder("Keyboard", "95843903", "img", 1, 100)
+    createItemOrder("Samsung Monitor", "12345678", "", 1, 300), 
+    createItemOrder("Mouse", "34567378","", 1, 50),
+    createItemOrder("Keyboard", "95843903", "", 1, 100)
   ];
 
 export default function StoreCard() {
@@ -71,7 +73,7 @@ export default function StoreCard() {
       />
       <CardMedia
         className={classes.media}
-        image="./asset/logo.png"
+        image={store_placeholder}
         title="Store Logo"
       />
       <CardContent>
@@ -108,8 +110,7 @@ export default function StoreCard() {
             <Card variant="outlined">
             <CardHeader
             avatar={
-            <Avatar aria-label="smt" className={classes.avatar}>
-            {item.itemName}
+            <Avatar alt="item image" src={item_placeholder} className={classes.avatar}>
             </Avatar>
             }
             title= {item.itemName}
