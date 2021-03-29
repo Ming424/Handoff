@@ -39,16 +39,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // Generate Order Data
-function createStoreData(storeName, img, storeAddress, pickUpTime, orderNum,orderStatus, travelingTime, trafficStatus, totalAmount, items) {
-    return { storeName, img, storeAddress, pickUpTime, orderNum,orderStatus, travelingTime, trafficStatus, totalAmount, items};
+function createStoreData(storeName, img, storeAddress, pickUpTime, orderNum, orderStatus, travelingTime, trafficStatus) {
+    return { storeName, img, storeAddress, pickUpTime, orderNum,orderStatus, travelingTime, trafficStatus};
   }
 
-function createItemOrder( itemName, img, quantity, price){
-      return { itemName, img, quantity, price};
+function createItemOrder( itemName, itemId, img, quantity, price){
+      return { itemName, itemId, img, quantity, price};
   }
   
+  const store = createStoreData("Microsoft Store", "img", "Microsoft Store Rive-Sud", "1:00 PM, Feb 24, 2021", "8904535", "Ready", "23", "Fluid", "3000");
+
   const itemMap = [
-    createStoreData("Microsoft", "img", "address", "pickUpTime", 12345 , "orderStatus", "travelingTime", "trafficStatus", 100, [createItemOrder("","", 1, 100), createItemOrder("","", 1, 100)]),
+    createItemOrder("Samsung Monitor", "123456","img", 1, 300), 
+    createItemOrder("Mouse", "34567","img", 1, 50),
+    createItemOrder("Keyboard", "95843903", "img", 1, 100)
   ];
 
 export default function StoreCard() {
@@ -62,13 +66,8 @@ export default function StoreCard() {
   return (
     <Card className={classes.root}>
       <CardHeader
-        avatar={
-          <Avatar aria-label="smt" className={classes.avatar}>
-            S
-          </Avatar>
-        }
-        title= {itemMap.storeName}
-        subheader="Total Order Price"
+        title= {store.storeName}
+        subheader={store.totalAmount}
       />
       <CardMedia
         className={classes.media}
@@ -77,7 +76,12 @@ export default function StoreCard() {
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          Order Info
+            Order Number: {store.orderNum} <br/>
+            Order Status : {store.orderStatus} <br/>
+            Pickup Time: {store.pickUpTime} <br/>
+            Address: {store.storeAddress} <br/>
+            Traveling Time: {store.travelingTime} <br/>
+            Traffic Conditions: {store.trafficStatus}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -100,13 +104,25 @@ export default function StoreCard() {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-            <Card>
-          <CardHeader
-             avatar={
-            <Avatar aria-label="smt" className={classes.avatar}></Avatar>}
-             title="Item Name"
-            subheader="Item Price"/>
-          </Card>
+        {itemMap.map((item) => (
+            <Card variant="outlined">
+            <CardHeader
+            avatar={
+            <Avatar aria-label="smt" className={classes.avatar}>
+            {item.itemName}
+            </Avatar>
+            }
+            title= {item.itemName}
+            subheader = {item.itemId}
+            />
+            <CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+            Quantity: {item.quantity} <br/>
+            Price : {item.price} <br/>
+        </Typography>
+            </CardContent>
+            </Card>
+))}
         </CardContent>
       </Collapse>
     </Card>
