@@ -10,6 +10,7 @@ import TopNav from './component/topNav';
 import logo from './asset/logo.png';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import StoreCard from './component/card';
 
 
 /** PAGE */
@@ -122,7 +123,9 @@ function App() {
 
       <History hisItem={hisItem} />
       <User user={user} />
-
+      <div>
+        <StoreCard></StoreCard>
+      </div>
 
       <Route path='/' exact />
       <Route path='/history' component={History} />
