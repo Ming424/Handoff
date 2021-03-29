@@ -6,7 +6,7 @@ import withScriptjs from "react-google-maps/lib/withScriptjs";
 
 const API_KEY = "AIzaSyAC4N3ize44dCziEefFXjjFhbUHDhfQegk";
 
-export default function ConfirmationPage() {
+export default function Confirmation() {
     const Map = withScriptjs(withGoogleMap((props) => 
         <GoogleMap
             defaultZoom={0x10}
@@ -28,10 +28,13 @@ export default function ConfirmationPage() {
                 googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${API_KEY}&v=3.exp&libraries=geometry,drawing,places`}
                 loadingElement={<div style={{ height: `100%` }} />}
                 containerElement={<div style={{ height: `512px` }} />}
-                mapElement={<div style={{ height: `100%` }} />}
+                mapElement={<div style={{ height: `100%`, width: `50%`, margin:"auto" }} />}
             />
             <Typography>
-                Estimated Time:
+                Estimated Time: 23 minutes
+            </Typography>
+            <Typography>
+                Traffic: <span style={{color: "green"}}>fluid</span>
             </Typography>
         </Container>
     )
