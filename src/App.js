@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Dashboard from './page/Dashboard';
 import History from './page/History';
 import User from './page/User';
+import Detail from './page/Detail';
 
 
  
@@ -83,15 +84,13 @@ function App() {
     <Router>
       <div className="App">
         <TopNav />
-
         <Switch>
           <Route path='/' exact component={Dashboard} />
           <Route path='/history' component={History} />
           <Route path='/user' component={User} />
+          <Route path='/detail' component={Detail} />
         </Switch>
-
-        <BottomNav  />
-
+        <BottomNav />
       </div>
     </Router>
   );
