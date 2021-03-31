@@ -24,35 +24,6 @@ function App() {
     profileImg: "",
   })
 
-  // PUT DUMMY ITEM HERE
-  // name, img, storeName, storeAddress, orderNum, quantity, pickUpTime, status, travalingTime, trafficStatus
-  const [item] = useState([
-    {
-      name:"Samsung Monitor", 
-      img:"", 
-      storeName:"Miscrosoft Store", 
-      storeAddress:"Microsoft Store Rive-Sud", 
-      orderNum:"8904535", 
-      quantity:"1", 
-      pickUpTime:"2:00 PM, Feb 24, 2021", 
-      status:"Ready", 
-      travalingTime:"23", 
-      trafficStatus:"Fluent"
-    },
-    {
-      name:"Samsung Monitor", 
-      img:"", 
-      storeName:"Miscrosoft Store", 
-      storeAddress:"Microsoft Store Rive-Sud", 
-      orderNum:"8904535", 
-      quantity:"1", 
-      pickUpTime:"2:00 PM, Feb 24, 2021", 
-      status:"Ready", 
-      travalingTime:"23", 
-      trafficStatus:"Fluent"
-    },
-  ])
-
   // History here
   const [hisItem] = useState([
     {
