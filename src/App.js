@@ -11,6 +11,7 @@ import Dashboard from './page/Dashboard';
 import History from './page/History';
 import User from './page/User';
 import Detail from './page/Detail';
+import { Confirmation } from './page/Confirmation';
 
 
  
@@ -89,6 +90,7 @@ function App() {
           <Route path='/history' component={History} />
           <Route path='/user' component={User} />
           <Route path='/detail' component={Detail} />
+          <Route path='/confirmation' component={Confirmation} />
         </Switch>
         <BottomNav />
       </div>
