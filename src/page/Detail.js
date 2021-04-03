@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Button, Card, CardContent, Table, TableContainer, TableHead, TableRow, TableCell, Typography } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -7,12 +7,17 @@ import samsungCurved from "../asset/samsung-curved-monitor.jpg";
 import samsungLED from "../asset/samsung-led-monitor.JPG";
 
 const Detail = (props) => {
-    const [toggleOpen, setToggleOpen] = useState(false);
+    const [toggleOpen] = useState(false);
+
+    const [user] = useState({
+        location: {lat: 45.46501895077987, lng: -73.63730895767137}
+    })
 
     const [order] = useState({
         orderNum:"8904535",
         storeName:"Miscrosoft Store", 
-        storeAddress:"Microsoft Store Rive-Sud", 
+        storeAddress:"Microsoft Store Rive-Sud",
+        location: {lat: 45.46506489842774, lng: -73.46695018950182},
         pickupTime: "2:00 PM, Feb 24, 2021",
         status: "Ready",
         travelTime: "23",
@@ -70,6 +75,7 @@ const Detail = (props) => {
     }));
 
     const classes = useStyles();
+    const history = useHistory();
 
     return (
         <div>
@@ -129,7 +135,13 @@ const Detail = (props) => {
                 </TableContainer>
 
                 <CardContent>
-                    <Button variant="contained" color="primary" onClick={() => {setToggleOpen(!toggleOpen)}}
+                    <Button variant="contained" color="primary" onClick={() => {
+                        history.push("/confirmation", {
+                            store: order.storeName,
+                            storeLocation: order.location,
+                            userLocation: user.location
+                        });
+                    }}
                         style={{marginRight: "20px"}}
                     >
                         Pick up now
