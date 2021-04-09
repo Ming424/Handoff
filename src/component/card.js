@@ -19,12 +19,13 @@ import { grey } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    margin: 'auto',
     maxWidth: 345,
     backgroundColor: grey[100],
   },
   media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
+    height: "10%",
+    // paddingTop: '56.25%', // 16:9
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -44,20 +45,20 @@ const useStyles = makeStyles((theme) => ({
 
 // Generate Order Data
 function createStoreData(storeName, img, storeAddress, pickUpTime, orderNum, orderStatus, travelingTime, trafficStatus) {
-    return { storeName, img, storeAddress, pickUpTime, orderNum,orderStatus, travelingTime, trafficStatus};
-  }
+  return { storeName, img, storeAddress, pickUpTime, orderNum, orderStatus, travelingTime, trafficStatus };
+}
 
-function createItemOrder( itemName, itemId, img, quantity, price){
-      return { itemName, itemId, img, quantity, price};
-  }
-  
-  const store = createStoreData("Microsoft Store", "", "Microsoft Store Rive-Sud", "1:00 PM, Feb 24, 2021", "8904535", "Ready", "23", "Fluid", "3000");
+function createItemOrder(itemName, itemId, img, quantity, price) {
+  return { itemName, itemId, img, quantity, price };
+}
 
-  const itemMap = [
-    createItemOrder("Samsung Monitor", "12345678", "", 1, 300), 
-    createItemOrder("Mouse", "34567378","", 1, 50),
-    createItemOrder("Keyboard", "95843903", "", 1, 100)
-  ];
+const store = createStoreData("Microsoft Store", "", "Microsoft Store Rive-Sud", "1:00 PM, Feb 24, 2021", "8904535", "Ready", "23", "Fluid", "3000");
+
+const itemMap = [
+  createItemOrder("Samsung Monitor", "12345678", "", 1, 300),
+  createItemOrder("Mouse", "34567378", "", 1, 50),
+  createItemOrder("Keyboard", "95843903", "", 1, 100)
+];
 
 export default function StoreCard() {
   const classes = useStyles();
@@ -70,22 +71,24 @@ export default function StoreCard() {
   return (
     <Card className={classes.root} variant="elevation">
       <CardHeader
-        title= {store.storeName}
+        title={store.storeName}
         subheader={store.totalAmount}
       />
-      <CardMedia
-        className={classes.media}
-        image={store_placeholder}
-        title="Store Logo"
-      />
+      {
+        expanded &&
+        <CardMedia
+          component="img"
+          className={classes.media}
+          image={store_placeholder}
+          title="Store Logo"
+        />
+      }
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-            Order Number: {store.orderNum} <br/>
-            Order Status : {store.orderStatus} <br/>
-            Pickup Time: {store.pickUpTime} <br/>
-            Address: {store.storeAddress} <br/>
-            Traveling Time: {store.travelingTime} <br/>
-            Traffic Conditions: {store.trafficStatus}
+          Order Number: {store.orderNum} <br />
+            Order Status : {store.orderStatus} <br />
+            Pickup Time: {store.pickUpTime} <br />
+            Address: {store.storeAddress} <br />
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -108,24 +111,24 @@ export default function StoreCard() {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-        {itemMap.map((item) => (
+          {itemMap.map((item) => (
             <Card variant="outlined">
-            <CardHeader
-            avatar={
-            <Avatar alt="item image" src={item_placeholder} className={classes.avatar}>
-            </Avatar>
-            }
-            title= {item.itemName}
-            subheader = {item.itemId}
-            />
-            <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
-            Quantity: {item.quantity} <br/>
-            Price : {item.price} <br/>
-        </Typography>
-            </CardContent>
+              <CardHeader
+                avatar={
+                  <Avatar alt="item image" src={item_placeholder} className={classes.avatar}>
+                  </Avatar>
+                }
+                title={item.itemName}
+                subheader={item.itemId}
+              />
+              <CardContent>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  Quantity: {item.quantity} <br />
+            Price : {item.price} <br />
+                </Typography>
+              </CardContent>
             </Card>
-))}
+          ))}
         </CardContent>
       </Collapse>
     </Card>
