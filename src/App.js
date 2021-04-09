@@ -51,7 +51,6 @@ function App() {
     <Router>
       <div className="App">
         <TopNav />
-        <StoreCard />
         <Switch>
           <Route path='/' exact component={Dashboard} />
           <Route path='/history' component={History} />
