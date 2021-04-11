@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { createStore } from 'redux';
 import './App.css';
 import BottomNav from './component/bottomNav';
-import StoreCard from './component/card';
 import TopNav from './component/topNav';
+import Checkout from './page/Checkout';
 import { Confirmation } from './page/Confirmation';
 import Dashboard from './page/Dashboard';
 import Detail from './page/Detail';
 import History from './page/History';
+import StorePage from './page/StoreDetail';
 import User from './page/User';
+
+
+function reducer(state = {orders: []}, action) {
+  return {orders: [...state.orders, action.payload],}
+}
+
+export const orders = createStore(reducer);
 
 function App() {
 
@@ -57,6 +66,8 @@ function App() {
           <Route path='/user' component={User} />
           <Route path='/detail' component={Detail} />
           <Route path='/confirmation' component={Confirmation} />
+          <Route path='/store' component={StorePage} />
+          <Route path='/checkout' component={Checkout} />
         </Switch>
         <BottomNav />
       </div>

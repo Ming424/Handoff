@@ -52,7 +52,6 @@ function Map(props) {
                         }}
                         callback={(response) => {
                             if (response) {
-                                console.log(response);
                                 setDirections(response);
                                 computeDuration(response)
                             }

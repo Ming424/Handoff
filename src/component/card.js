@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -14,8 +14,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import CheckCircleRoundedIcon from '@material-ui/icons/CheckCircleRounded';
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
 import item_placeholder from '../asset/item_placeholder.png'
-import store_placeholder from '../asset/store_placeholder.png'
+import microsoft from '../asset/microsoft.png'
 import { grey } from '@material-ui/core/colors';
+import { orders } from '../App';
+import { Container } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -63,74 +65,81 @@ const itemMap = [
 export default function StoreCard() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+  const [temp, setTemp] = React.useState([]);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
+  orders.subscribe(() => setTemp(orders.getState()));
+
   return (
-    <Card className={classes.root} variant="elevation">
-      <CardHeader
-        title={store.storeName}
-        subheader={store.totalAmount}
-      />
-      {
-        expanded &&
-        <CardMedia
-          component="img"
-          className={classes.media}
-          image={store_placeholder}
-          title="Store Logo"
-        />
-      }
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Order Number: {store.orderNum} <br />
-            Order Status : {store.orderStatus} <br />
-            Pickup Time: {store.pickUpTime} <br />
-            Address: {store.storeAddress} <br />
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="clear">
-          <CheckCircleRoundedIcon />
-        </IconButton>
-        <IconButton aria-label="location">
-          <LocationOnRoundedIcon />
-        </IconButton>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          {itemMap.map((item) => (
-            <Card variant="outlined">
-              <CardHeader
-                avatar={
-                  <Avatar alt="item image" src={item_placeholder} className={classes.avatar}>
-                  </Avatar>
-                }
-                title={item.itemName}
-                subheader={item.itemId}
-              />
-              <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  Quantity: {item.quantity} <br />
-            Price : {item.price} <br />
-                </Typography>
-              </CardContent>
-            </Card>
-          ))}
-        </CardContent>
-      </Collapse>
-    </Card>
+    <Container>
+      {temp.map(order => (
+        <Card className={classes.root} variant="elevation">
+          <CardHeader
+            title={order.storeName}
+            subheader={order.totalAmount}
+          />
+          {
+            expanded &&
+            <CardMedia
+              component="img"
+              className={classes.media}
+              image={microsoft} // TODO order.storeImage
+              title="Store Logo"
+            />
+          }
+          <CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+                Order Number: {order.orderNum} <br />
+                Order Status : {order.orderStatus} <br />
+                Pickup Time: {order.pickUpTime} <br />
+                Address: {order.storeAddress} <br />
+            </Typography>
+          </CardContent>
+          <CardActions disableSpacing>
+            <IconButton aria-label="clear">
+              <CheckCircleRoundedIcon />
+            </IconButton>
+            <IconButton aria-label="location">
+              <LocationOnRoundedIcon />
+            </IconButton>
+            <IconButton
+              className={clsx(classes.expand, {
+                [classes.expandOpen]: expanded,
+              })}
+              onClick={handleExpandClick}
+              aria-expanded={expanded}
+              aria-label="show more"
+            >
+              <ExpandMoreIcon />
+            </IconButton>
+          </CardActions>
+          <Collapse in={expanded} timeout="auto" unmountOnExit>
+            <CardContent>
+              {order.items.map((item) => (
+                <Card variant="outlined">
+                  <CardHeader
+                    avatar={
+                      // TODO item.image
+                      <Avatar alt="item image" src={item_placeholder} className={classes.avatar} />
+                    }
+                    title={item.name}
+                    subheader={item.id}
+                  />
+                  <CardContent>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                      Quantity: {item.quantity} <br />
+                      Price : {item.price} <br />
+                    </Typography>
+                  </CardContent>
+                </Card>
+              ))}
+            </CardContent>
+          </Collapse>
+        </Card>
+      ))}
+    </Container>
   );
 }
