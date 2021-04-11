@@ -8,6 +8,7 @@ import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge'; 
 import SearchIcon from '@material-ui/icons/Search'; 
 import NotificationsIcon from '@material-ui/icons/Notifications'; 
+import { Link, Redirect } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -72,7 +73,9 @@ export default function TopNav() {
     <div className={classes.grow} >
       <AppBar color='#FFD700'  elevation={0} style={{ background: '#FFD700', alignItems: 'center' }} >
         <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap> Handoff </Typography>
+          <Link to="/" style={{color: 'inherit', textDecoration: 'inherit'}}>
+            <Typography className={classes.title} variant="h6" noWrap> Handoff </Typography>
+          </Link>
 
           <div style={{width:''}} className={classes.search}>
             <div className={classes.searchIcon}>
