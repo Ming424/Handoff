@@ -14,10 +14,10 @@ import User from './page/User';
 
 
 function reducer(state = {orders: []}, action) {
-  if (state.orders.length === 1) {
-    return {orders: [action.payload]}
+  if(action.type === 'order/add-order'){
+    return {orders:[...state.orders, action.payload]};
   }
-  return {orders: [...state.orders, action.payload],}
+  return state;
 }
 
 export const orders = createStore(reducer);
