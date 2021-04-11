@@ -4,14 +4,25 @@ import { Button, Card, CardContent, Table, TableContainer, TableHead, TableRow, 
 import { makeStyles } from '@material-ui/core/styles';
 import { orders } from '../App';
 
+
+const computeStatus = (readyAt, status) => {
+    if (status) {
+        return "Picked up"
+    }
+    return isProcessing(readyAt) ? "Ready" : "Processing"
+}
+
+const isProcessing = (readyAt) => {
+    return readyAt < Date.now();
+}
+
 const Detail = (props) => {
 
     const [user] = useState({
         location: {lat: 45.46501895077987, lng: -73.63730895767137}
     })
-
-    const [order] = useState(orders.getState().orders[props.location.state.orderNumber])
-    console.log(order);
+    
+    const [order] = useState(orders.getState().orders[props.location.state.orderNumber]);
 
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -81,8 +92,8 @@ const Detail = (props) => {
                             <TableCell className={classes.item}>
                                 <Typography variant="body2" color="textSecondary" component="p">
                                     Order number: {props.location.state.orderNumber} <br/>
-                                    {/* Pickup status: {order.status} <br/>
-                                    Pickup time: {order.pickupTime} <br/> */}
+                                    Pickup status: {computeStatus(order.readyAt, order.status)} <br/>
+                                    Pickup time: {order.readyAt.toLocaleString()} <br/>
                                 </Typography>
                             </TableCell>
                         </TableRow>
@@ -110,7 +121,7 @@ const Detail = (props) => {
                 </TableContainer>
 
                 <CardContent>
-                    <Button variant="contained" color="primary" onClick={() => {
+                    <Button disabled={!isProcessing(order.readyAt)} variant="contained" color="primary" onClick={() => {
                         history.push("/confirmation", {
                             store: order.store.name,
                             storeLocation: order.store.location,
@@ -120,9 +131,6 @@ const Detail = (props) => {
                         style={{marginRight: "20px"}}
                     >
                         Pick up now
-                    </Button>
-                    <Button variant="contained" color="primary">
-                        Pick up later
                     </Button>
                 </CardContent>
             </Card>

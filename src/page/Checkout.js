@@ -23,6 +23,12 @@ const beautify = (amount) => {
     return amount.toFixed(2);
 }
 
+const computeReadyTime = (processingTime) => {
+    const date = new Date();
+    date.setMilliseconds(date.getMilliseconds() + processingTime);
+    return date;
+}
+
 export default function Checkout(props) {
 
     const history = useHistory();
@@ -95,7 +101,12 @@ export default function Checkout(props) {
                 </Grid>
             </Grid>
             <Button onClick={() => {
-                    orders.dispatch({type: "order/add-order", payload: { store: props.location.state.store, items}});
+                    orders.dispatch({type: "order/add-order", payload: { 
+                        store: props.location.state.store, 
+                        items, 
+                        readyAt: computeReadyTime(props.location.state.store.processingTime),
+                        status: false
+                    }});
                     const orderNumber = orders.getState().orders.length - 1;
                     history.push("/detail", {orderNumber});
                 }}

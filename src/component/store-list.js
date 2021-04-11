@@ -18,7 +18,8 @@ const stores = [
         items: [
             {id: "fjsklfsd", name: "Samsung Curved Monitor", price: 499.99, image: samsungCurvedMonitor}, // TODO better ids
             {id: "fsdfsfss", name: "Samsung LED Monitor", price: 398.99, image: samsungLedMontior},
-        ]
+        ],
+        processingTime: 0
     },
     {
         name: "Apple Sainte-Catherine",
@@ -30,7 +31,8 @@ const stores = [
         },
         items: [
 
-        ]
+        ],
+        processingTime: 300000
     },
     {
         name: "Bureau en Gros",
@@ -42,7 +44,8 @@ const stores = [
         },
         items: [
 
-        ]
+        ],
+        processingTime: 0
     }
 ];
 

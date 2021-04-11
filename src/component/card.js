@@ -17,7 +17,7 @@ import item_placeholder from '../asset/item_placeholder.png'
 import microsoft from '../asset/microsoft.png'
 import { grey } from '@material-ui/core/colors';
 import { orders } from '../App';
-import { Container } from '@material-ui/core';
+import { Accordion, AccordionDetails, AccordionSummary, Container } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -62,20 +62,52 @@ const itemMap = [
   createItemOrder("Keyboard", "95843903", "", 1, 100)
 ];
 
+function OrderCard(props) {
+  return (
+    <Card>
+      <CardHeader 
+        title={props.store.name}
+        subheader={props.orderAmount}
+      />
+      <CardContent>
+        <Typography variant="body2" color="textSecondary" component="p">
+            Order Number: {props.orderNum} <br />
+            Order Status : {props.orderStatus} <br />
+            Pickup Time: {props.pickUpTime.toLocaleString()} <br />
+            Address: {props.store.address} <br />
+          </Typography>
+      </CardContent>
+    </Card>
+  )
+}
+
 export default function StoreCard() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  const [temp, setTemp] = React.useState([]);
+  const [pickedUp, setPickedUp] = React.useState(orders.getState().orders.filter(order => order.status)); // TODO rename this
+  const [ready , setReady] = React.useState(orders.getState().orders.filter(order => !order.status && order.readyAt <= Date.now()));
+  const [processing, setProcessing] = React.useState(orders.getState().orders.filter(order => !order.status && order.readyAt > Date.now()));
+
+  console.log(ready);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  orders.subscribe(() => setTemp(orders.getState()));
-
   return (
     <Container>
-      {temp.map(order => (
+      <Accordion>
+        <AccordionSummary>
+          <Typography>Ready {ready.length}</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          {ready.map(order => (
+            // TODO order number is not right
+            <OrderCard store={order.store} orderAmount={Object.values(order.items).reduce((total, current) => total += current.info.price * current.quantity, 0)} orderNum="12e93123" orderStatus="Ready" pickUpTime={order.readyAt} />
+          ))}
+        </AccordionDetails>
+      </Accordion>
+      {/* {pickedUp.map(order => (
         <Card className={classes.root} variant="elevation">
           <CardHeader
             title={order.storeName}
@@ -139,7 +171,7 @@ export default function StoreCard() {
             </CardContent>
           </Collapse>
         </Card>
-      ))}
+      ))} */}
     </Container>
   );
 }

@@ -14,6 +14,9 @@ import User from './page/User';
 
 
 function reducer(state = {orders: []}, action) {
+  if (state.orders.length === 1) {
+    return {orders: [action.payload]}
+  }
   return {orders: [...state.orders, action.payload],}
 }
 

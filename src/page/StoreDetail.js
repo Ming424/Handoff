@@ -23,7 +23,7 @@ export default function StorePage(props) {
                 info: props.location.state.store.items.find(item => item.name === identifier),
                 quantity: quantity
             }
-        }), [props.location.state.items, items]);
+        }), [props.location.state.store.items, items]);
 
     const handleClick = (item) => history.push("/item", { item });
 
