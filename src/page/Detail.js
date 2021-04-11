@@ -2,41 +2,16 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Button, Card, CardContent, Table, TableContainer, TableHead, TableRow, TableCell, Typography } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-
-import samsungCurved from "../asset/samsung-curved-monitor.jpg";
-import samsungLED from "../asset/samsung-led-monitor.JPG";
+import { orders } from '../App';
 
 const Detail = (props) => {
-    const [toggleOpen] = useState(false);
 
     const [user] = useState({
         location: {lat: 45.46501895077987, lng: -73.63730895767137}
     })
 
-    const [order] = useState({
-        orderNum:"8904535",
-        storeName:"Miscrosoft Store", 
-        storeAddress:"Microsoft Store Rive-Sud",
-        location: {lat: 45.46506489842774, lng: -73.46695018950182},
-        pickupTime: "2:00 PM, Feb 24, 2021",
-        status: "Ready",
-        travelTime: "23",
-        trafficStatus: "Fluent",
-        items: [
-        {
-          name:"Samsung Curved Monitor", 
-          img: samsungCurved,
-          itemNum:"12345", 
-          quantity:"1", 
-        },
-        {
-          name:"Samsung LED Monitor", 
-          img:samsungLED, 
-          itemNum:"12346", 
-          quantity:"1", 
-        },
-      ]
-    });
+    const [order] = useState(orders.getState().orders[props.location.state.orderNumber])
+    console.log(order);
 
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -99,15 +74,15 @@ const Detail = (props) => {
                         <TableRow>
                             <TableCell className={classes.item}>
                                 <Typography variant="body2" color="textSecondary" component="p">
-                                    {order.storeName} <br/>
-                                    {order.storeAddress} <br/>
+                                    {order.store.name} <br/>
+                                    {order.store.address} <br/>
                                 </Typography>
                             </TableCell>
                             <TableCell className={classes.item}>
                                 <Typography variant="body2" color="textSecondary" component="p">
-                                    Order number: {order.orderNum} <br/>
-                                    Pickup status: {order.status} <br/>
-                                    Pickup time: {order.pickupTime} <br/>
+                                    Order number: {props.location.state.orderNumber} <br/>
+                                    {/* Pickup status: {order.status} <br/>
+                                    Pickup time: {order.pickupTime} <br/> */}
                                 </Typography>
                             </TableCell>
                         </TableRow>
@@ -116,16 +91,16 @@ const Detail = (props) => {
                 <TableContainer style={{ maxHeight: "250px" }}>
                     <Table className={classes.itemList}>
                     {
-                        order.items.map(item => (
-                            <TableRow key={item.itemNum}>
+                        Object.values(order.items).map(item => (
+                            <TableRow key={item.info.id}>
                                 <TableCell>
-                                    <img src={item.img} alt="item" className={classes.itemImage}/>
+                                    <img src={item.info.image} alt="item" className={classes.itemImage}/>
                                 </TableCell>
                                 <TableCell>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        {item.name} <br/>
+                                        {item.info.name} <br/>
                                         Quantity: {item.quantity} <br/>
-                                        Item number: {item.itemNum}
+                                        Item number: {item.info.id}
                                     </Typography>
                                 </TableCell>
                             </TableRow>
@@ -137,8 +112,8 @@ const Detail = (props) => {
                 <CardContent>
                     <Button variant="contained" color="primary" onClick={() => {
                         history.push("/confirmation", {
-                            store: order.storeName,
-                            storeLocation: order.location,
+                            store: order.store.name,
+                            storeLocation: order.store.location,
                             userLocation: user.location
                         });
                     }}
@@ -150,12 +125,6 @@ const Detail = (props) => {
                         Pick up later
                     </Button>
                 </CardContent>
-                <div className={toggleOpen ? classes.pickupOpen : classes.pickup}>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        Traffic status: {order.trafficStatus} <br/>
-                        Estimated travel time: {order.travelTime} <br/>
-                    </Typography>
-                </div>
             </Card>
         </div>
     )

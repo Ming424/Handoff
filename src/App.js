@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { createStore } from 'redux';
 import './App.css';
-
-import TopNav from './component/topNav';
 import BottomNav from './component/bottomNav';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-
-/** PAGE */
-import Dashboard from './page/Dashboard';
-import History from './page/History';
-import User from './page/User';
-import Detail from './page/Detail';
+import TopNav from './component/topNav';
+import Checkout from './page/Checkout';
 import { Confirmation } from './page/Confirmation';
+import Dashboard from './page/Dashboard';
+import Detail from './page/Detail';
+import History from './page/History';
+import StorePage from './page/StoreDetail';
+import User from './page/User';
 
 
- 
+function reducer(state = {orders: []}, action) {
+  return {orders: [...state.orders, action.payload],}
+}
+
+export const orders = createStore(reducer);
+
 function App() {
 
   // STATE
@@ -27,28 +31,28 @@ function App() {
   // History here
   const [hisItem] = useState([
     {
-      name:"Samsung Monitor", 
-      img:"", 
-      storeName:"Miscrosoft Store", 
-      storeAddress:"Microsoft Store Rive-Sud", 
-      orderNum:"8904535", 
-      quantity:"1", 
-      pickUpTime:"2:00 PM, Feb 24, 2021", 
-      status:"Ready", 
-      travalingTime:"23", 
-      trafficStatus:"Fluent"
+      name: "Samsung Monitor",
+      img: "",
+      storeName: "Miscrosoft Store",
+      storeAddress: "Microsoft Store Rive-Sud",
+      orderNum: "8904535",
+      quantity: "1",
+      pickUpTime: "2:00 PM, Feb 24, 2021",
+      status: "Ready",
+      travalingTime: "23",
+      trafficStatus: "Fluent"
     },
     {
-      name:"Samsung Monitor", 
-      img:"", 
-      storeName:"Miscrosoft Store", 
-      storeAddress:"Microsoft Store Rive-Sud", 
-      orderNum:"8904535", 
-      quantity:"1", 
-      pickUpTime:"2:00 PM, Feb 24, 2021", 
-      status:"Ready", 
-      travalingTime:"23", 
-      trafficStatus:"Fluent"
+      name: "Samsung Monitor",
+      img: "",
+      storeName: "Miscrosoft Store",
+      storeAddress: "Microsoft Store Rive-Sud",
+      orderNum: "8904535",
+      quantity: "1",
+      pickUpTime: "2:00 PM, Feb 24, 2021",
+      status: "Ready",
+      travalingTime: "23",
+      trafficStatus: "Fluent"
     },
   ])
 
@@ -62,6 +66,8 @@ function App() {
           <Route path='/user' component={User} />
           <Route path='/detail' component={Detail} />
           <Route path='/confirmation' component={Confirmation} />
+          <Route path='/store' component={StorePage} />
+          <Route path='/checkout' component={Checkout} />
         </Switch>
         <BottomNav />
       </div>
