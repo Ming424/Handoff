@@ -5,6 +5,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import { orders } from '../App';
 
 
+const orderFor = (id) => {
+    const state = orders.getState();
+    return state[id];
+}
+
 const computeStatus = (readyAt, status) => {
     if (status) {
         return "Picked up"
@@ -22,7 +27,8 @@ const Detail = (props) => {
         location: {lat: 45.46501895077987, lng: -73.63730895767137}
     })
     
-    const [order] = useState(orders.getState().orders[props.location.state.orderNumber]);
+    const [order] = useState(orderFor(props.location.state.orderNumber));
+    console.log(order);
 
     const useStyles = makeStyles((theme) => ({
         root: {

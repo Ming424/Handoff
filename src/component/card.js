@@ -81,14 +81,14 @@ function OrderCard(props) {
   )
 }
 
+
 export default function StoreCard() {
+  console.log(orders.getState());
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  const [pickedUp, setPickedUp] = React.useState(orders.getState().orders.filter(order => order.status)); // TODO rename this
-  const [ready , setReady] = React.useState(orders.getState().orders.filter(order => !order.status && order.readyAt <= Date.now()));
-  const [processing, setProcessing] = React.useState(orders.getState().orders.filter(order => !order.status && order.readyAt > Date.now()));
-
-  console.log(ready);
+  const [pickedUp, setPickedUp] = React.useState(orders.getState().filter(order => order.status)); // TODO rename this
+  const [ready , setReady] = React.useState(orders.getState().filter(order => !order.status && order.readyAt <= Date.now()));
+  const [processing, setProcessing] = React.useState(orders.getState().filter(order => !order.status && order.readyAt > Date.now()));
 
   const handleExpandClick = () => {
     setExpanded(!expanded);

@@ -107,7 +107,7 @@ export default function Checkout(props) {
                         readyAt: computeReadyTime(props.location.state.store.processingTime),
                         status: false
                     }});
-                    const orderNumber = orders.getState().orders.length - 1;
+                    const orderNumber = orders.getState().length - 1;
                     history.push("/detail", {orderNumber});
                 }}
             >
