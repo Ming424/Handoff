@@ -17,7 +17,8 @@ import item_placeholder from '../asset/item_placeholder.png'
 import microsoft from '../asset/microsoft.png'
 import { grey } from '@material-ui/core/colors';
 import { orders } from '../App';
-import { Accordion, AccordionDetails, AccordionSummary, Container } from '@material-ui/core';
+import { Accordion, AccordionDetails, AccordionSummary, Button, Container } from '@material-ui/core';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 // Generate Order Data
 function createStoreData(storeName, img, storeAddress, pickUpTime, orderNum, orderStatus, travelingTime, trafficStatus) {
   return { storeName, img, storeAddress, pickUpTime, orderNum, orderStatus, travelingTime, trafficStatus };
@@ -62,7 +64,8 @@ const itemMap = [
   createItemOrder("Keyboard", "95843903", "", 1, 100)
 ];
 
-function OrderCard(props) {
+const OrderCard = (props) => {
+  const history = useHistory();
   return (
     <Card>
       <CardHeader 
@@ -75,7 +78,15 @@ function OrderCard(props) {
             Order Status : {props.orderStatus} <br />
             Pickup Time: {props.pickUpTime.toLocaleString()} <br />
             Address: {props.store.address} <br />
-          </Typography>
+            </Typography>
+            <br></br>
+            {(props.orderStatus == "Ready") && <Button variant="contained" color="primary" onClick={() => {
+                        history.push("/detail", {orderNumber: props.orderIndex});
+                    }}
+                        style={{marginRight: "20px"}}
+                    >
+                        Pick up now
+                    </Button>}
       </CardContent>
     </Card>
   )
@@ -98,12 +109,12 @@ export default function StoreCard() {
     <Container>
       <Accordion>
         <AccordionSummary>
-          <Typography>Ready {ready.length}</Typography>
+          <Typography>Ready ({ready.length})</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          {ready.map(order => (
+          {ready.map( order => (
             // TODO order number is not right
-            <OrderCard store={order.store} orderAmount={Object.values(order.items).reduce((total, current) => total += current.info.price * current.quantity, 0)} orderNum="12e93123" orderStatus="Ready" pickUpTime={order.readyAt} />
+            <OrderCard store={order.store} orderAmount={Object.values(order.items).reduce((total, current) => total += current.info.price * current.quantity, 0)} orderNum="12e93123" orderStatus="Ready" pickUpTime={order.readyAt} orderIndex={order.orderIndex}/>
           ))}
         </AccordionDetails>
       </Accordion>

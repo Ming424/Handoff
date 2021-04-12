@@ -22,7 +22,7 @@ const isProcessing = (readyAt) => {
 }
 
 const Detail = (props) => {
-
+    
     const [user] = useState({
         location: {lat: 45.46501895077987, lng: -73.63730895767137}
     })
@@ -131,7 +131,8 @@ const Detail = (props) => {
                         history.push("/confirmation", {
                             store: order.store.name,
                             storeLocation: order.store.location,
-                            userLocation: user.location
+                            userLocation: user.location,
+                            orderIndex: order.orderIndex,
                         });
                     }}
                         style={{marginRight: "20px"}}
