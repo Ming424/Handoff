@@ -28,7 +28,6 @@ const Detail = (props) => {
     })
     
     const [order] = useState(orderFor(props.location.state.orderNumber));
-    console.log(order);
 
     const useStyles = makeStyles((theme) => ({
         root: {
