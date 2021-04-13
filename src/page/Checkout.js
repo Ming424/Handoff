@@ -101,13 +101,16 @@ export default function Checkout(props) {
                 </Grid>
             </Grid>
             <Button onClick={() => {
+                    const orderNumber = orders.getState().length;
                     orders.dispatch({type: "order/add-order", payload: { 
                         store: props.location.state.store, 
                         items, 
                         readyAt: computeReadyTime(props.location.state.store.processingTime),
-                        status: false
+                        status: false,
+                        orderNumber,
+                        isAcknowledged: false,
                     }});
-                    const orderNumber = orders.getState().orders.length - 1;
+                    
                     history.push("/detail", {orderNumber});
                 }}
             >

@@ -1,10 +1,10 @@
-import StoreCard from "../component/card";
+import OrdersList from "../component/order-list";
 
 const History = (props) => {
     return (
         <div>
             <h1>HISTORY PAGE</h1>
-            <StoreCard />
+            <OrdersList />
         </div>
     )
 }
