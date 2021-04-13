@@ -11,6 +11,7 @@ import Detail from './page/Detail';
 import History from './page/History';
 import StorePage from './page/StoreDetail';
 import User from './page/User';
+import Scheduling from './page/Scheduling';
 
 
 function reducer(state = {orders: []}, action) {
@@ -71,6 +72,7 @@ function App() {
           <Route path='/confirmation' component={Confirmation} />
           <Route path='/store' component={StorePage} />
           <Route path='/checkout' component={Checkout} />
+          <Route path='/scheduling' component={Scheduling} />
         </Switch>
         <BottomNav />
       </div>

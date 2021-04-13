@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { Button, Card, CardContent, Table, TableContainer, TableHead, TableRow, TableCell, Typography } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import { orders } from '../App';
+import { FormatAlignCenter } from "@material-ui/icons";
 
 
 const computeStatus = (readyAt, status) => {
@@ -131,6 +132,18 @@ const Detail = (props) => {
                         style={{marginRight: "20px"}}
                     >
                         Pick up now
+                    </Button>
+                </CardContent>
+                <CardContent>
+                    <Button disabled={!isProcessing(order.readyAt)} variant="contained" color="default"onClick={() => {
+                        history.push("/scheduling", {
+                            store: order.store.name,
+                            storeLocation: order.store.location,
+                            userLocation: user.location
+                        });
+                    }}
+                    >
+                        Pick up later
                     </Button>
                 </CardContent>
             </Card>
