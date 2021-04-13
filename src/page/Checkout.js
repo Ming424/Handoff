@@ -107,7 +107,8 @@ export default function Checkout(props) {
                         items, 
                         readyAt: computeReadyTime(props.location.state.store.processingTime),
                         status: false,
-                        orderIndex: orderNumber,
+                        orderNumber,
+                        isAcknowledged: false,
                     }});
                     
                     history.push("/detail", {orderNumber});

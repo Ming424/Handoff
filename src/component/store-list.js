@@ -16,10 +16,10 @@ const stores = [
             lng: -73.57394297448062,
         },
         items: [
-            {id: "fjsklfsd", name: "Samsung Curved Monitor", price: 499.99, image: samsungCurvedMonitor}, // TODO better ids
-            {id: "fsdfsfss", name: "Samsung LED Monitor", price: 398.99, image: samsungLedMontior},
+            {id: "00051201", name: "Samsung Curved Monitor", price: 499.99, image: samsungCurvedMonitor}, // TODO better ids
+            {id: "12548711", name: "Samsung LED Monitor", price: 398.99, image: samsungLedMontior},
         ],
-        processingTime: 0
+        processingTime: 300000
     },
     {
         name: "Apple Sainte-Catherine",
