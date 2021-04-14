@@ -29,6 +29,7 @@ export default function StorePage(props) {
 
     return (
         <Container>
+            <Button style={{float: "left"}}>Back</Button>
             <List>
                 {props.location.state.store.items.map(item => (
                     <ListItem key={item.name}>
@@ -43,7 +44,7 @@ export default function StorePage(props) {
                     </ListItem>
                 ))}
             </List>
-            <Button disabled={!hasItems(items)} onClick={() => history.push("/checkout", {store: props.location.state.store, items })}>Checkout</Button>
+            <Button variant="contained" color="primary" disabled={!hasItems(items)} onClick={() => history.push("/checkout", {store: props.location.state.store, items })}>Checkout</Button>
         </Container>
     );
 }
