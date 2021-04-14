@@ -1,14 +1,17 @@
-import { Accordion, AccordionDetails, AccordionSummary, Button, Container } from '@material-ui/core';
+import { Accordion, AccordionDetails, AccordionSummary, Avatar, Badge, Button, Chip, Container, Grid } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
+import { ExpandMore } from '@material-ui/icons';
+import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
-import { orders } from '../App';
+import { orders } from "../App";
 
 const OrderCard = (props) => {
+
   const history = useHistory();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
   return (
     <Card>
       <CardHeader
@@ -23,7 +26,7 @@ const OrderCard = (props) => {
             Address: {props.store.address} <br />
         </Typography>
         <br></br>
-        {(props.orderStatus == "Ready") && <Button variant="contained" color="primary" onClick={() => {
+        {(props.orderStatus === "Ready") && <Button variant="contained" color="primary" onClick={() => {
           history.push("/detail", { orderNumber: props.orderNumber });
         }}
           style={{ marginRight: "20px" }}
@@ -35,68 +38,45 @@ const OrderCard = (props) => {
   )
 }
 
+function OrderCategory(props) {
+  return (
+    <Accordion>
+      <AccordionSummary expandIcon={<ExpandMore />}>
+        <Grid container>
+          <Grid item xs={11}>
+            <Typography align="left">{props.status}</Typography>
+          </Grid>
+          <Grid item xs={1}>
+            <Chip label={props.orders.length} color="primary" size="small" />
+          </Grid>
+        </Grid>
+      </AccordionSummary>
+      <AccordionDetails>
+        {props.orders.map(order => (
+          <OrderCard
+            key={order.orderNumber}
+            store={order.store}
+            orderAmount={order.price}
+            orderNumber={order.orderNumber}
+            orderStatus={props.status}
+            pickUpTime={order.readyAt}
+          />
+        ))}
+      </AccordionDetails>
+    </Accordion>
+  )
+}
+
+
 export default function OrdersList() {
 
-  const [pickedUp] = React.useState(orders.getState().filter(order => order.status));
-  const [ready] = React.useState(orders.getState().filter(order => !order.status && order.readyAt <= Date.now()));
-  const [processing] = React.useState(orders.getState().filter(order => !order.status && order.readyAt > Date.now()));
+  const [history] = useState(orders.getState());
 
   return (
     <Container>
-      <Accordion>
-        <AccordionSummary>
-          <Typography>Ready ({ready.length})</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          {ready.map(order => (
-            <OrderCard
-              key={order.orderNumber}
-              store={order.store}
-              orderAmount={Object.values(order.items).reduce((total, current) => 
-                total += current.info.price * current.quantity, 0)}
-              orderNumber={order.orderNumber}
-              orderStatus="Ready"
-              pickUpTime={order.readyAt}
-            />
-          ))}
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary>
-          <Typography>Processing ({processing.length})</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          {processing.map(order => (
-            <OrderCard
-              key={order.orderNumber}
-              store={order.store}
-              orderAmount={Object.values(order.items).reduce((total, current) => 
-                total += current.info.price * current.quantity, 0)}
-              orderNumber={order.orderNumber}
-              orderStatus="Ready"
-              pickUpTime={order.readyAt}
-            />
-          ))}
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary>
-          <Typography>Picked Up ({pickedUp.length})</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          {pickedUp.map(order => (
-            <OrderCard
-              key={order.orderNumber}
-              store={order.store}
-              orderAmount={Object.values(order.items).reduce((total, current) => 
-                total += current.info.price * current.quantity, 0)}
-              orderNumber={order.orderNumber}
-              orderStatus="Ready"
-              pickUpTime={order.readyAt}
-            />
-          ))}
-        </AccordionDetails>
-      </Accordion>
+      <OrderCategory orders={history.filter(order => !order.status && order.readyAt <= Date.now())} status="Ready" />
+      <OrderCategory orders={history.filter(order => !order.status && order.readyAt > Date.now())} status="Processing" />
+      <OrderCategory orders={history.filter(order => order.status)} status="Picked Up" />
     </Container>
   );
 }

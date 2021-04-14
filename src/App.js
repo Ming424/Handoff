@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createStore } from 'redux';
 import './App.css';
@@ -20,41 +20,6 @@ function reducer(state = [], action) {
 export const orders = createStore(reducer);
 
 function App() {
-
-  // STATE
-  const [user] = useState({
-    name: "Tim",
-    userId: "8523",
-    profileImg: "",
-  })
-
-  // History here
-  const [hisItem] = useState([
-    {
-      name: "Samsung Monitor",
-      img: "",
-      storeName: "Miscrosoft Store",
-      storeAddress: "Microsoft Store Rive-Sud",
-      orderNum: "8904535",
-      quantity: "1",
-      pickUpTime: "2:00 PM, Feb 24, 2021",
-      status: "Ready",
-      travalingTime: "23",
-      trafficStatus: "Fluent"
-    },
-    {
-      name: "Samsung Monitor",
-      img: "",
-      storeName: "Miscrosoft Store",
-      storeAddress: "Microsoft Store Rive-Sud",
-      orderNum: "8904535",
-      quantity: "1",
-      pickUpTime: "2:00 PM, Feb 24, 2021",
-      status: "Ready",
-      travalingTime: "23",
-      trafficStatus: "Fluent"
-    },
-  ])
 
   return (
     <Router>

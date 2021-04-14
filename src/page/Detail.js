@@ -4,10 +4,9 @@ import { Button, Card, CardContent, Table, TableContainer, TableHead, TableRow, 
 import { makeStyles } from '@material-ui/core/styles';
 import { orders } from '../App';
 
-
-const orderFor = (id) => {
+const orderFor = (orderNumber) => {
     const state = orders.getState();
-    return state[id];
+    return state[orderNumber];
 }
 
 const computeStatus = (readyAt, status) => {
@@ -68,7 +67,7 @@ const Detail = (props) => {
     const classes = useStyles();
     const history = useHistory();
 
-    return (
+    return order ? (
         <div>
             <Card variant="outlined" className={classes.root}>
                 <CardContent className={classes.header}>
@@ -141,7 +140,7 @@ const Detail = (props) => {
                 </CardContent>
             </Card>
         </div>
-    )
+    ) : null;
 }
 
 export default Detail;

@@ -1,8 +1,8 @@
-import { Avatar, Button, Container, Divider, Grid, IconButton, List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText, Typography } from "@material-ui/core";
+import { Avatar, Button, Container, Grid, IconButton, List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText, Typography } from "@material-ui/core";
 import { Delete } from "@material-ui/icons";
 import { useCallback, useEffect, useState } from "react";
 import { useHistory } from "react-router";
-import { orders } from "../App";
+import { orders } from '../App';
 import { QuantitySelector } from "../component/quantity-selector";
 
 const TAX_RATE = 0.15;
@@ -101,16 +101,17 @@ export default function Checkout(props) {
                 </Grid>
             </Grid>
             <Button onClick={() => {
+                    console.log(orders.getState());
                     const orderNumber = orders.getState().length;
-                    orders.dispatch({type: "order/add-order", payload: { 
+                    orders.dispatch({type: "order/add-order", payload: {
                         store: props.location.state.store, 
                         items, 
                         readyAt: computeReadyTime(props.location.state.store.processingTime),
                         status: false,
                         orderNumber,
                         isAcknowledged: false,
-                    }});
-                    
+                        price: beautify(subtotal + tax),
+                    }})
                     history.push("/detail", {orderNumber});
                 }}
             >

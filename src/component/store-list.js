@@ -1,4 +1,4 @@
-import { Avatar, List, ListItem, ListItemAvatar, ListItemText } from "@material-ui/core";
+import { Avatar, Container, List, ListItem, ListItemAvatar, ListItemText } from "@material-ui/core";
 import { useHistory } from "react-router";
 import apple from "../asset/apple.png";
 import microsoft from "../asset/microsoft.png";
@@ -54,7 +54,7 @@ export default function StoreList() {
     const history = useHistory();
 
     return (
-        <div>
+        <Container maxWidth='lg'>
             <List>
                 {stores.map(store => (
                     <ListItem key={store.name} button onClick={() => history.push(`/store`, {store})} divider>
@@ -65,7 +65,7 @@ export default function StoreList() {
                     </ListItem>
                 ))}
             </List>
-        </div>
+        </Container>
     )
 
 }

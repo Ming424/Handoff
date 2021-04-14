@@ -5,10 +5,11 @@ import RestoreIcon from '@material-ui/icons/Restore';
 import PersonIcon from '@material-ui/icons/Person';
 import GradeIcon from '@material-ui/icons/Grade';
 import { Link } from "react-router-dom";
+import { getOrders } from '../configure-store';
 
 export default function SimpleBottomNavigation(props) {
 
-  const pathname = window.location.pathname; 
+  const pathname = window.location.pathname;
   const [value, setValue] = useState(pathname);
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -17,9 +18,9 @@ export default function SimpleBottomNavigation(props) {
   return (
     <>
     <div style={{marginBottom:"100px"}} />
-      <BottomNavigation showLabels style={style_BottomNav} value={value} onChange={() => handleChange()}>
+      <BottomNavigation showLabels style={style_BottomNav} value={value} onChange={() => handleChange()} >
         <BottomNavigationAction label="Dashboard" value="/" icon={<GradeIcon />} component={Link} to='/' />
-        <BottomNavigationAction label="History" value="/history" icon={<RestoreIcon />} component={Link} to='/history' />
+        <BottomNavigationAction label="History" value="/history" icon={<RestoreIcon />} component={Link} to={{pathname: '/history', state: getOrders()}} />
         <BottomNavigationAction label="Me" value="/user" icon={<PersonIcon />} component={Link} to='/user' />
       </BottomNavigation>
     </>

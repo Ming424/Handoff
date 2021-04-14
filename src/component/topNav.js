@@ -12,6 +12,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { List, ListItem, ListItemIcon, ListItemText, Popover } from '@material-ui/core';
 import { orders } from '../App';
 import { ShoppingCart } from '@material-ui/icons';
+import logo from '../asset/logo.png';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -122,7 +123,8 @@ export default function TopNav() {
     <div className={classes.grow} >
       <AppBar color='#FFD700' elevation={0} style={{ background: '#FFD700', alignItems: 'center' }} >
         <Toolbar>
-          <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+          <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit', display: 'flex', alignItems: 'center' }}>
+            <img src={logo} style={{height:'50px'}} alt="LOGO" />
             <Typography className={classes.title} variant="h6" noWrap> Handoff </Typography>
           </Link>
 
