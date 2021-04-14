@@ -2,7 +2,6 @@ import { Component, useState } from "react";
 import { Container, Button } from '@material-ui/core';
 import Calendar from 'react-calendar';
 import TimeKeeper from 'react-timekeeper';
-import {KeyboardTimePicker} from '@material-ui/pickers';
 //import DatePicker from 'react-date-picker'; //can be used but mockup showed calendar so calendar shall be implemented
 
 
