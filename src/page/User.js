@@ -1,28 +1,61 @@
-const User = (props) => {
-    return (
-        <div>
-            <h1>USER PAGE1</h1>
-            <h1>USER PAGE2</h1>
-            <h1>USER PAGE3</h1>
-            <h1>USER PAGE4</h1>
-            <h1>USER PAGE5</h1>
-            <h1>USER PAGE5</h1>
-            <h1>USER PAGE5</h1>
-            <h1>USER PAGE5</h1>
-            <h1>USER PAGE5</h1>
-            <h1>USER PAGE5</h1>
-            <h1>USER PAGE5</h1>
-            <h1>USER PAGE5</h1>
-            <h1>USER PAGE5</h1>
-            <h1>USER PAGE5</h1>
-            <h1>USER PAGE5</h1>
-            <h1>USER PAGE5</h1>
-            <h1>USER PAGE5</h1>
-            <h1>USER PAGE5</h1>
-            <h1>USER PAGE5</h1>
-            <h1>USER PAGE5</h1>
-        </div>
-    )
-}
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import profPic from '../asset/profile.jpg'
+import Avatar from '@material-ui/core/Avatar';
+import Grid from '@material-ui/core/Grid';
 
-export default User;
+const useStyles = makeStyles((theme) => ({
+    root: {
+      display: 'block',
+    },
+    bullet: {
+      display: 'inline-block',
+      margin: '0 2px',
+      transform: 'scale(0.8)',
+    },
+    title: {
+      fontSize: 14,
+    },
+    pos: {
+      marginBottom: 12,
+    },
+    posSmall: {
+        marginBottom: 5,
+    },
+    large: {
+        width: theme.spacing(7),
+        height: theme.spacing(7),
+    },
+    picture: {
+        borderRadius: '50%',
+    }
+  }));
+
+  export default function User() {
+    const classes = useStyles();
+  
+    return (
+      <Card className={classes.root}>
+        <CardContent>
+            <img src={profPic} className={classes.picture} style={{height:'100px'}} alt="User Profile Picture" />
+          <Typography variant="h5" component="h2">
+            Rick Astley
+          </Typography>
+          <Typography className={classes.pos} color="textSecondary">
+            ID: 4324789523
+          </Typography>
+          <Typography variant="body2" component="p">
+            This user is too lazy to leave a word
+          </Typography>
+        </CardContent> 
+        <Button className={classes.posSmall} size="small" variant="contained" color="primary" fullWidth>Q&amp;A</Button>
+        <Button size="small" variant="contained" color="secondary" fullWidth>Log Out</Button>
+
+      </Card>
+    );
+  }
