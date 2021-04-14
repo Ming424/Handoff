@@ -1,27 +1,32 @@
-import { Component, useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Button } from '@material-ui/core';
 import Calendar from 'react-calendar';
 import TimeKeeper from 'react-timekeeper';
-import {KeyboardTimePicker} from '@material-ui/pickers';
-//import DatePicker from 'react-date-picker'; //can be used but mockup showed calendar so calendar shall be implemented
+import { orders } from "../App";
+import { useHistory } from "react-router";
 
+
+
+const orderFor = (orderNumber) => {
+    const state = orders.getState();
+    return state[orderNumber];
+}
 
 export function Schedule(props) {
-    const [ date, setDate ] = useState(new Date());
-    const [ time, setTime ] = useState("00:00"); 
-    
-    const today = new Date(Date.now());
-    var newTime = today;
+
+    const history = useHistory();
+    const [ order ] = useState(orderFor(props.location.state.orderNumber));
+    const [ date, setDate ] = useState(order.readyAt);
+    const [ time, setTime ] = useState("00:00");
 
     const changeDate = newDate => {
         setDate(newDate);
     };
 
     const changeTime = time => {
-        var hours = parseInt(time.split(':')[0]), mins = parseInt(time.split(':')[1]);
+        const hours = parseInt(time.split(':')[0]), mins = parseInt(time.split(':')[1]);
         date.setHours(hours);
         date.setMinutes(mins);
-        console.log(date);
     }
 
     return (
@@ -29,7 +34,7 @@ export function Schedule(props) {
             <Container maxWidth="sm">
                 <Calendar
                     calendarType={"Hebrew"}
-                    minDate={today}
+                    minDate={date}
                     minDetail={"month"}
                     next2Label={null}
                     prev2Label={null}
@@ -40,7 +45,7 @@ export function Schedule(props) {
             </Container>
             
             <h1>
-                Pick up on {date.toDateString()}
+                Pick up on {date.toLocaleString()}
             </h1>
 
             <Container maxWidth="sm">
@@ -53,7 +58,10 @@ export function Schedule(props) {
             </Container>
 
             <Button variant="contained" color="primary"
-            //todo onClick={}
+                onClick={() => {
+                    order.readyAt = date;
+                    history.push("/history");
+                }}
             >
                 Schedule
             </Button>
