@@ -130,12 +130,24 @@ const Detail = (props) => {
                             store: order.store.name,
                             storeLocation: order.store.location,
                             userLocation: user.location,
-                            orderIndex: order.orderIndex,
+                            orderNumber: order.orderNumber,
                         });
                     }}
                         style={{marginRight: "20px"}}
                     >
                         Pick up now
+                    </Button>
+                    <Button variant="contained" color="default" onClick={() => {
+                        history.push("/scheduling", {
+                            store: order.store.name,
+                            storeLocation: order.store.location,
+                            userLocation: user.location,
+                            orderNumber: order.orderNumber,
+                        });
+                    }}
+                        style={{marginRight: "20px"}}
+                    >
+                        Pick up later
                     </Button>
                 </CardContent>
             </Card>
