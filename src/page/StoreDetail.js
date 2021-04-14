@@ -36,11 +36,7 @@ export default function StorePage(props) {
                             <Avatar src={item.image} />
                         </ListItemAvatar>
                         <ListItemText
-                            primary={
-                                <Link onClick={() => handleClick(item)}>
-                                    {item.name}
-                                </Link>
-                            }
+                            primary={item.name}
                             secondary={item.price}
                         />
                         <QuantitySelector onIncrement={handleIncrement} identifier={item.name} />
