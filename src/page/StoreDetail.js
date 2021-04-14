@@ -29,7 +29,6 @@ export default function StorePage(props) {
 
     return (
         <Container>
-            <Button style={{float: "left"}}>Back</Button>
             <List>
                 {props.location.state.store.items.map(item => (
                     <ListItem key={item.name}>
