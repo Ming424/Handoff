@@ -14,11 +14,8 @@ import User from './page/User';
 import Scheduling from './page/Scheduling';
 
 
-function reducer(state = {orders: []}, action) {
-  if (state.orders.length === 1) {
-    return {orders: [action.payload]}
-  }
-  return {orders: [...state.orders, action.payload],}
+function reducer(state = [], action) {
+  return action.type === "order/add-order" ? [...state, action.payload] : state;
 }
 
 export const orders = createStore(reducer);
