@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { Button, Card, CardContent, Table, TableContainer, TableHead, TableRow, TableCell, Typography } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import { orders } from '../App';
+import BackButtom from '../component/backButtom';
 
 const orderFor = (orderNumber) => {
     const state = orders.getState();
@@ -33,7 +34,9 @@ const Detail = (props) => {
             padding: 0,
             margin: "0px auto",
             overflowY: "hidden",
-            boxSizing: "border-box"
+            boxSizing: "border-box",
+            border: "none",
+            boxShadow: "none"
         },
         header: {
             padding: "10px 10px 5px 10px"
@@ -68,15 +71,10 @@ const Detail = (props) => {
     const history = useHistory();
 
     return order ? (
-        <div>
-            <Card variant="outlined" className={classes.root}>
+        <Card   className={classes.root}>
+            <BackButtom />
                 <CardContent className={classes.header}>
                     <Typography style={{ textTransform: "capitalize" }} variant="h4">
-                        <Link to='/' style={{ textDecoration: 'none' }}>
-                            <Button to='/' style={{minWidth: 0}}>
-                                &lt;
-                            </Button>
-                        </Link>
                         Detail Page
                     </Typography>
                 </CardContent>
@@ -150,8 +148,7 @@ const Detail = (props) => {
                         Pick up later
                     </Button>
                 </CardContent>
-            </Card>
-        </div>
+        </Card>
     ) : null;
 }
 

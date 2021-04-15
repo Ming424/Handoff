@@ -1,6 +1,9 @@
 import { Container, Typography } from "@material-ui/core";
 import { useCallback, useState } from "react";
 import Map from "../component/map";
+import { Button } from "@material-ui/core";
+import MapIcon from '@material-ui/icons/Map';
+import BackButtom from '../component/backButtom';
 
 export function Confirmation(props) {
     const [duration, setDuration] = useState("");
@@ -11,7 +14,8 @@ export function Confirmation(props) {
     }, []);
 
     return (
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" style={confirmationStyle}>
+            <BackButtom />
             <Typography>From: Your location</Typography>
             <Typography>To: {props.location.state.store}</Typography>
             <Map
@@ -21,6 +25,21 @@ export function Confirmation(props) {
             />
             <Typography>Estimated Time: {duration}</Typography>
             <Typography>Traffic Conditions: {traffic}</Typography>
+            <Button style={buttonStyle}
+                variant="contained"  
+                color="primary">
+                    <MapIcon />&nbsp;&nbsp;&nbsp;Go to Google Map
+                </Button>
         </Container>
     )
+}
+
+const confirmationStyle = {
+    lineHeight: "200%",
+};
+
+const buttonStyle = {
+    marginTop: "5px",
+    color: "white",
+    backgroundColor: "green"
 }

@@ -4,7 +4,7 @@ import Calendar from 'react-calendar';
 import TimeKeeper from 'react-timekeeper';
 import { orders } from "../App";
 import { useHistory } from "react-router";
-import { getAllByTestId } from "@testing-library/dom";
+import BackButtom from '../component/backButtom';
 
 
 
@@ -40,6 +40,7 @@ export function Schedule(props) {
 
     return (
         <div>
+            <BackButtom />
             <Container maxWidth="sm">
                 <Calendar
                     calendarType={"Hebrew"}
@@ -70,7 +71,7 @@ export function Schedule(props) {
                 {!validPickUpDate(date)? "Please pick a date after "+order.readyAt.toLocaleString():""}
             </Container>
 
-            <Button disabled={!validPickUpDate(date)} variant="contained" color="primary"
+            <Button disabled={!validPickUpDate(date)} variant="contained" color="primary" style={{marginTop:"10px"}}
                 onClick={() => {
                     order.readyAt = date;
                     history.push("/history");

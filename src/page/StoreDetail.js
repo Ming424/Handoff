@@ -1,8 +1,8 @@
 import { Avatar, Button, Container, Grid, List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText } from "@material-ui/core";
 import { useCallback, useState } from "react";
 import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
 import { QuantitySelector } from "../component/quantity-selector";
+import BackButtom from '../component/backButtom';
 
 const hasItems = (items) => {
     for (let name in items) {
@@ -29,6 +29,7 @@ export default function StorePage(props) {
 
     return (
         <Container>
+            <BackButtom />
             <List>
                 {props.location.state.store.items.map(item => (
                     <ListItem key={item.name}>
