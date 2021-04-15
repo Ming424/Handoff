@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createStore } from 'redux';
 import './App.css';
@@ -21,6 +21,10 @@ function reducer(state = [], action) {
 export const orders = createStore(reducer);
 
 function App() {
+
+  useEffect(() => {
+    document.title = "Handoff";
+  })
 
   return (
     <Router>
