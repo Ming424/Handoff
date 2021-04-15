@@ -75,7 +75,7 @@ const Detail = (props) => {
             <BackButton />
                 <CardContent className={classes.header}>
                     <Typography style={{ textTransform: "capitalize" }} variant="h4">
-                        Detail Page
+                        Order Detail
                     </Typography>
                 </CardContent>
                 <CardContent>
