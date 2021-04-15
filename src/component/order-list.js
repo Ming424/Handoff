@@ -1,4 +1,4 @@
-import { Accordion, AccordionDetails, AccordionSummary, Avatar, Badge, Button, Chip, Container, Grid } from '@material-ui/core';
+import { Accordion, AccordionDetails, AccordionSummary, Button, Chip, Container, Grid } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';

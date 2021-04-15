@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import Map from "../component/map";
 import { Button } from "@material-ui/core";
 import MapIcon from '@material-ui/icons/Map';
-import BackButtom from '../component/backButtom';
+import BackButtom from '../component/backButton';
 
 export function Confirmation(props) {
     const [duration, setDuration] = useState("");

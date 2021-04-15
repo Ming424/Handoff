@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Button, Card, CardContent, Table, TableContainer, TableHead, TableRow, TableCell, Typography } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import { orders } from '../App';
-import BackButtom from '../component/backButtom';
+import BackButton from '../component/backButton';
 
 const orderFor = (orderNumber) => {
     const state = orders.getState();
@@ -72,7 +72,7 @@ const Detail = (props) => {
 
     return order ? (
         <Card   className={classes.root}>
-            <BackButtom />
+            <BackButton />
                 <CardContent className={classes.header}>
                     <Typography style={{ textTransform: "capitalize" }} variant="h4">
                         Detail Page

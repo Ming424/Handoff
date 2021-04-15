@@ -6,9 +6,9 @@ import BottomNav from './component/bottomNav';
 import TopNav from './component/topNav';
 import Checkout from './page/Checkout';
 import { Confirmation } from './page/Confirmation';
-import Dashboard from './page/Dashboard';
+import Stores from './page/Stores';
 import Detail from './page/Detail';
-import History from './page/History';
+import Dashboard from './page/Dashboard';
 import StorePage from './page/StoreDetail';
 import User from './page/User';
 import Scheduling from './page/Scheduling';
@@ -27,8 +27,8 @@ function App() {
       <div className="App">
         <TopNav />
         <Switch>
-          <Route path='/' exact component={Dashboard} />
-          <Route path='/history' component={History} />
+          <Route path='/' exact component={Stores} />
+          <Route path='/history' component={Dashboard} />
           <Route path='/user' component={User} />
           <Route path='/detail' component={Detail} />
           <Route path='/confirmation' component={Confirmation} />

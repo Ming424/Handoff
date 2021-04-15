@@ -1,12 +1,10 @@
-import Button from '@material-ui/core/Button';
+import OrdersList from "../component/order-list";
 
-import { Link } from "react-router-dom";
-import StoreList from '../component/store-list';
 const Dashboard = (props) => {
     return (
         <div>
-            <h1>DASHBOARD PAGE</h1>
-            <StoreList />
+            <h1>DASHBOARD</h1>
+            <OrdersList />
         </div>
     )
 }

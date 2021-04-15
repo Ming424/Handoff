@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { orders } from '../App';
 import { QuantitySelector } from "../component/quantity-selector";
-import BackButtom from '../component/backButtom';
+import BackButtom from '../component/backButton';
 
 const TAX_RATE = 0.15;
 
@@ -71,9 +71,8 @@ export default function Checkout(props) {
                         <ListItemAvatar>
                             <Avatar src={items[name].info.image} />
                         </ListItemAvatar>
-                        <ListItemText primary={name} secondary={items[name].info.price} />
+                        <ListItemText primary={name} secondary={beautify(lineItemTotal(items[name]))} />
                         <QuantitySelector onIncrement={handleIncrement} identifier={name} initialValue={items[name].quantity} />
-                        <ListItemText primary={beautify(lineItemTotal(items[name]))} />
                         <ListItemSecondaryAction>
                             <IconButton onClick={() => handleDelete(name)}>
                                 <Delete />
@@ -103,7 +102,6 @@ export default function Checkout(props) {
                 </Grid>
             </Grid>
             <Button onClick={() => {
-                    console.log(orders.getState());
                     const orderNumber = orders.getState().length;
                     orders.dispatch({type: "order/add-order", payload: {
                         store: props.location.state.store, 

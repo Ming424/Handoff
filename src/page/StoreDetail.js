@@ -1,8 +1,8 @@
-import { Avatar, Button, Container, Grid, List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText } from "@material-ui/core";
+import { Avatar, Button, Container, List, ListItem, ListItemAvatar, ListItemText } from "@material-ui/core";
 import { useCallback, useState } from "react";
 import { useHistory } from "react-router";
 import { QuantitySelector } from "../component/quantity-selector";
-import BackButtom from '../component/backButtom';
+import BackButtom from '../component/backButton';
 
 const hasItems = (items) => {
     for (let name in items) {

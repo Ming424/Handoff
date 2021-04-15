@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { Container, Button, TableContainer } from '@material-ui/core';
+import { useState } from "react";
+import { Container, Button } from '@material-ui/core';
 import Calendar from 'react-calendar';
 import TimeKeeper from 'react-timekeeper';
 import { orders } from "../App";
 import { useHistory } from "react-router";
-import BackButtom from '../component/backButtom';
+import BackButtom from '../component/backButton';
 
 
 
@@ -22,16 +22,12 @@ export function Schedule(props) {
 
     const changeDate = newDate => {
         setDate(newDate);
-        console.log("changeDate()->"+date);
-        //console.log(order.readyAt);
     };
 
     const changeTime = newTime => {
         const hours = parseInt(newTime.split(':')[0]), mins = parseInt(newTime.split(':')[1]);
         date.setHours(hours);
         date.setMinutes(mins);
-        console.log("changeTime()->"+time);
-        //console.log(order.readyAt);
     }
 
     const validPickUpDate = date => {

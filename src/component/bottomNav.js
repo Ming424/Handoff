@@ -5,16 +5,12 @@ import PersonIcon from '@material-ui/icons/Person';
 import StoreIcon from '@material-ui/icons/Store';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import { Link } from "react-router-dom";
-import { fade, makeStyles } from '@material-ui/core/styles';
 
 export default function SimpleBottomNavigation(props) {
 
 
   const pathname = window.location.pathname;
   const [value, setValue] = useState(pathname);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
   return (
     <>
