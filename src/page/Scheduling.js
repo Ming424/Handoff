@@ -4,6 +4,7 @@ import Calendar from 'react-calendar';
 import TimeKeeper from 'react-timekeeper';
 import { orders } from "../App";
 import { useHistory } from "react-router";
+import BackButtom from '../component/backButtom';
 
 
 
@@ -31,6 +32,7 @@ export function Schedule(props) {
 
     return (
         <div>
+            <BackButtom />
             <Container maxWidth="sm">
                 <Calendar
                     calendarType={"Hebrew"}
@@ -57,7 +59,7 @@ export function Schedule(props) {
                 {changeTime(time)}
             </Container>
 
-            <Button variant="contained" color="primary"
+            <Button variant="contained" color="primary" style={{marginTop:"10px"}}
                 onClick={() => {
                     order.readyAt = date;
                     history.push("/history");

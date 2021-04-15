@@ -31,7 +31,7 @@ const OrderCard = (props) => {
         }}
           style={{ marginRight: "20px" }}
         >
-          Pick up now
+          See detail
                     </Button>}
       </CardContent>
     </Card>

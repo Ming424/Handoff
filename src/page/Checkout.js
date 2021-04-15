@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { orders } from '../App';
 import { QuantitySelector } from "../component/quantity-selector";
+import BackButtom from '../component/backButtom';
 
 const TAX_RATE = 0.15;
 
@@ -63,6 +64,7 @@ export default function Checkout(props) {
 
     return (
         <Container>
+            <BackButtom />
             <List>
                 {Object.keys(items).map(name => (
                     <ListItem key={name} divider>
@@ -114,6 +116,8 @@ export default function Checkout(props) {
                     }})
                     history.push("/detail", {orderNumber});
                 }}
+                variant="contained"
+                color="primary"
             >
                 Confirm Order
             </Button>
