@@ -75,23 +75,23 @@ function NotificationList(props) {
 
   return (
     <Popover open={props.open} anchorEl={props.anchorEl} anchorOrigin={{ vertical: "bottom", horizontal: "center" }} onClose={props.onClose} >
-      <List>
-        {props.notifications.map(notification => (
-          <ListItem key={notification.orderNumber} button onClick={() => {
-            notification.isAcknowledged = true;
-            props.onClick(notification.orderNumber);
-            props.onClose();
-            history.push("/detail", { orderNumber: notification.orderNumber });
-          }}>
-            <ListItemIcon>
-              <ShoppingCart />
-            </ListItemIcon>
-            <ListItemText>
-              <Typography>Your order from {notification.store.name} is ready!</Typography>
-            </ListItemText>
-          </ListItem>
-        ))}
-      </List>
+        <List>
+          {props.notifications.length ? props.notifications.map(notification => (
+            <ListItem key={notification.orderNumber} button onClick={() => {
+              notification.isAcknowledged = true;
+              props.onClick(notification.orderNumber);
+              props.onClose();
+              history.push("/detail", { orderNumber: notification.orderNumber });
+            }}>
+              <ListItemIcon>
+                <ShoppingCart />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography>Your order from {notification.store.name} is ready!</Typography>
+              </ListItemText>
+            </ListItem>
+          )) : <ListItem><ListItemText><Typography>There are no notifications.</Typography></ListItemText></ListItem>}
+        </List>
     </Popover>
   )
 
@@ -124,7 +124,7 @@ export default function TopNav() {
       <AppBar color='#FFD700' elevation={0} style={{ background: '#FFD700', alignItems: 'center' }} >
         <Toolbar>
           <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit', display: 'flex', alignItems: 'center' }}>
-            <img src={logo} style={{height:'50px'}} alt="LOGO" />
+            <img src={logo} style={{ height: '50px' }} alt="LOGO" />
             <Typography className={classes.title} variant="h6" noWrap> Handoff </Typography>
           </Link>
 
@@ -144,9 +144,10 @@ export default function TopNav() {
           <div className={classes.grow} />
           <IconButton color="inherit" onClick={(event) => {
             event.preventDefault();
-            if (notifications.length && !anchorEl) {
+            if (!anchorEl) {
               setAnchorEl(event.currentTarget);
-            }}}
+            }
+          }}
           >
             <Badge badgeContent={notifications.length} color="secondary" invisible={!notifications.length}>
               <NotificationsIcon />
