@@ -114,7 +114,7 @@ export default function TopNav() {
   useEffect(() => {
     setInterval(() => {
       setNotifications(checkForReadyOrders(orders.getState()));
-    }, 120000);
+    }, 30000);
   }, [notifications]);
 
   const open = Boolean(anchorEl);

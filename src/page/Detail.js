@@ -24,7 +24,7 @@ const isProcessing = (readyAt) => {
 const Detail = (props) => {
     
     const [user] = useState({
-        location: {lat: 45.46501895077987, lng: -73.63730895767137}
+        location: {lat: 45.49501945543799, lng: -73.5779568696582}
     })
     
     const [order] = useState(orderFor(props.location.state.orderNumber));
