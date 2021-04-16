@@ -11,7 +11,7 @@ export function QuantitySelector(props) {
     const [count, setCount] = useState(props.initialValue ?? 0);
 
     const handleIncrement = () => {
-        setCount(prev => prev + 1);
+        setCount(prev => +prev + 1);
         props.onIncrement(props.identifier, count + 1);
     };
 
