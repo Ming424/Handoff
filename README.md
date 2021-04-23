@@ -1,5 +1,5 @@
 # Handoff
-![logo](https://user-images.githubusercontent.com/37958655/115896737-bad3f700-a429-11eb-8e0c-baccb57e12e1.png)\s\s
+![logo](https://user-images.githubusercontent.com/37958655/115896737-bad3f700-a429-11eb-8e0c-baccb57e12e1.png)\
 Handoff - A React project for SOEN 357 (User Interface Design)
 
 ### Introduction
