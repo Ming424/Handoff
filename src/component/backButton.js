@@ -1,12 +1,12 @@
+import { Button } from "@material-ui/core";
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import React from 'react';
 import { useHistory } from "react-router-dom";
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import { Button } from "@material-ui/core";
 
 // import BackButtom from '../component/backButtom';
 // <BackButtom />
 
-export default function BackButtom() {
+export default function BackButton() {
 
   const history = useHistory();
   const goBack = () => { history.goBack() }

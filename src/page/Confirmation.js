@@ -1,9 +1,8 @@
-import { Container, Typography } from "@material-ui/core";
-import { useCallback, useState } from "react";
-import Map from "../component/map";
-import { Button } from "@material-ui/core";
+import { Button, Container, Typography } from "@material-ui/core";
 import MapIcon from '@material-ui/icons/Map';
+import { useCallback, useState } from "react";
 import BackButtom from '../component/backButton';
+import Map from "../component/map";
 
 export function Confirmation(props) {
     const [duration, setDuration] = useState("");
@@ -26,9 +25,9 @@ export function Confirmation(props) {
             <Typography>Estimated Time: {duration}</Typography>
             <Typography>Traffic Conditions: {traffic}</Typography>
             <Button style={buttonStyle}
-                variant="contained"  
+                variant="contained"
                 color="primary">
-                    <MapIcon />&nbsp;&nbsp;&nbsp;Go to Google Map
+                <MapIcon />&nbsp;&nbsp;&nbsp;Go to Google Map
                 </Button>
         </Container>
     )

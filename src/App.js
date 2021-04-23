@@ -6,12 +6,12 @@ import BottomNav from './component/bottomNav';
 import TopNav from './component/topNav';
 import Checkout from './page/Checkout';
 import { Confirmation } from './page/Confirmation';
-import Stores from './page/Stores';
-import Detail from './page/Detail';
 import Dashboard from './page/Dashboard';
-import StorePage from './page/StoreDetail';
-import User from './page/User';
+import Detail from './page/Detail';
 import Scheduling from './page/Scheduling';
+import StorePage from './page/StoreDetail';
+import Stores from './page/Stores';
+import User from './page/User';
 
 
 function reducer(state = [], action) {

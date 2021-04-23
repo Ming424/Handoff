@@ -1,9 +1,9 @@
-import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import { Add, Remove } from "@material-ui/icons";
+import React, { useState } from "react";
 
 const isInteger = (value) => {
-    return !isNaN(value) && (function(x) { return (x | 0) === x; })(parseFloat(value));
+    return !isNaN(value) && (function (x) { return (x | 0) === x; })(parseFloat(value));
 }
 
 export function QuantitySelector(props) {
@@ -40,14 +40,14 @@ export function QuantitySelector(props) {
             <Button onClick={handleDecrement}>
                 <Remove />
             </Button>
-            <input value={count} 
+            <input value={count}
                 onChange={(event) => setCount(event.target.value)}
                 onBlur={(event) => handleBlur(event)}
-                style={{width: 0x40}}
+                style={{ width: 0x40 }}
             />
             <Button onClick={handleIncrement}>
                 <Add />
-            </Button>   
+            </Button>
         </div>
     );
 }

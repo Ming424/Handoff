@@ -1,9 +1,9 @@
+import { Button, Container } from '@material-ui/core';
 import { useState } from "react";
-import { Container, Button } from '@material-ui/core';
 import Calendar from 'react-calendar';
+import { useHistory } from "react-router";
 import TimeKeeper from 'react-timekeeper';
 import { orders } from "../App";
-import { useHistory } from "react-router";
 import BackButtom from '../component/backButton';
 
 
@@ -15,9 +15,9 @@ const orderFor = (orderNumber) => {
 
 export function Schedule(props) {
     const history = useHistory();
-    const [ order ] = useState(orderFor(props.location.state.orderNumber));
-    const [ date, setDate ] = useState(new Date(order.readyAt));
-    const [ time, setTime ] = useState(date.toTimeString().substring(0,5));
+    const [order] = useState(orderFor(props.location.state.orderNumber));
+    const [date, setDate] = useState(new Date(order.readyAt));
+    const [time, setTime] = useState(date.toTimeString().substring(0, 5));
 
 
     const changeDate = newDate => {
@@ -49,25 +49,25 @@ export function Schedule(props) {
                     value={date}
                 />
             </Container>
-            
+
             <h1>
                 Pick up on {date.toLocaleString()}
             </h1>
 
             <Container maxWidth="sm">
                 <TimeKeeper
-                    time = { time }
-                    onChange = { (time) => setTime(time.formatted24)}
-                    switchToMinuteOnHourSelect = {true}
+                    time={time}
+                    onChange={(time) => setTime(time.formatted24)}
+                    switchToMinuteOnHourSelect={true}
                 />
                 {changeTime(time)}
             </Container>
 
             <Container>
-                {!validPickUpDate(date)? "Please pick a date after "+order.readyAt.toLocaleString():""}
+                {!validPickUpDate(date) ? "Please pick a date after " + order.readyAt.toLocaleString() : ""}
             </Container>
 
-            <Button disabled={!validPickUpDate(date)} variant="contained" color="primary" style={{marginTop:"10px"}}
+            <Button disabled={!validPickUpDate(date)} variant="contained" color="primary" style={{ marginTop: "10px" }}
                 onClick={() => {
                     order.readyAt = date;
                     history.push("/history");
@@ -77,7 +77,7 @@ export function Schedule(props) {
             </Button>
         </div>
     )
-    
+
 }
 //for now im just gonna put in the calendar in there but we could create a component to control possible delivery dates
 

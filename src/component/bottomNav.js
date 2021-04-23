@@ -1,9 +1,9 @@
-import React, { useState }  from 'react';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import DashboardIcon from '@material-ui/icons/Dashboard';
 import PersonIcon from '@material-ui/icons/Person';
 import StoreIcon from '@material-ui/icons/Store';
-import DashboardIcon from '@material-ui/icons/Dashboard';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
 export default function SimpleBottomNavigation(props) {
@@ -14,15 +14,15 @@ export default function SimpleBottomNavigation(props) {
 
   return (
     <>
-    <div style={{marginBottom:"100px"}} />
-      <BottomNavigation 
-        showLabels 
-        style={style_BottomNav} 
-        value={value} 
+      <div style={{ marginBottom: "100px" }} />
+      <BottomNavigation
+        showLabels
+        style={style_BottomNav}
+        value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
-        }} 
-        >
+        }}
+      >
         <BottomNavigationAction label="Stores" value="/" icon={<StoreIcon />} component={Link} to='/' />
         <BottomNavigationAction label="Dashboard" value="/history" icon={<DashboardIcon />} component={Link} to='/history' />
         <BottomNavigationAction label="Me" value="/user" icon={<PersonIcon />} component={Link} to='/user' />

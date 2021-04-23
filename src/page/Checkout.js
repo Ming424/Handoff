@@ -3,8 +3,8 @@ import { Delete } from "@material-ui/icons";
 import { useCallback, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { orders } from '../App';
-import { QuantitySelector } from "../component/quantity-selector";
 import BackButtom from '../component/backButton';
+import { QuantitySelector } from "../component/quantity-selector";
 
 const TAX_RATE = 0.15;
 
@@ -38,8 +38,8 @@ export default function Checkout(props) {
     const [tax, setTax] = useState(0);
     const handleIncrement = useCallback((identifier, quantity) => (
         setItems({
-            ...items, 
-            [identifier]: {...items[identifier], quantity: quantity}
+            ...items,
+            [identifier]: { ...items[identifier], quantity: quantity }
         })), [items]);
 
     const handleDelete = (name) => {
@@ -82,7 +82,7 @@ export default function Checkout(props) {
                 ))}
             </List>
             <Grid container>
-                <Grid  item xs={11}>
+                <Grid item xs={11}>
                     <Typography align="right" variant="h6">Subtotal:</Typography>
                 </Grid>
                 <Grid item xs={1}>
@@ -102,18 +102,20 @@ export default function Checkout(props) {
                 </Grid>
             </Grid>
             <Button onClick={() => {
-                    const orderNumber = orders.getState().length;
-                    orders.dispatch({type: "order/add-order", payload: {
-                        store: props.location.state.store, 
-                        items, 
+                const orderNumber = orders.getState().length;
+                orders.dispatch({
+                    type: "order/add-order", payload: {
+                        store: props.location.state.store,
+                        items,
                         readyAt: computeReadyTime(props.location.state.store.processingTime),
                         status: false,
                         orderNumber,
                         isAcknowledged: false,
                         price: beautify(subtotal + tax),
-                    }})
-                    history.push("/detail", {orderNumber});
-                }}
+                    }
+                })
+                history.push("/detail", { orderNumber });
+            }}
                 variant="contained"
                 color="primary"
             >

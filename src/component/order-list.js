@@ -11,7 +11,7 @@ import { orders } from "../App";
 const OrderCard = (props) => {
 
   const history = useHistory();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+
   return (
     <Card>
       <CardHeader
@@ -20,7 +20,7 @@ const OrderCard = (props) => {
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-            Order Number: {props.orderNumber} <br />
+          Order Number: {props.orderNumber} <br />
             Order Status : {props.orderStatus} <br />
             Pickup Time: {props.pickUpTime.toLocaleString()} <br />
             Address: {props.store.address} <br />

@@ -1,8 +1,8 @@
 import { Avatar, Button, Container, List, ListItem, ListItemAvatar, ListItemText } from "@material-ui/core";
 import { useCallback, useState } from "react";
 import { useHistory } from "react-router";
-import { QuantitySelector } from "../component/quantity-selector";
 import BackButtom from '../component/backButton';
+import { QuantitySelector } from "../component/quantity-selector";
 
 const hasItems = (items) => {
     for (let name in items) {
@@ -44,7 +44,7 @@ export default function StorePage(props) {
                     </ListItem>
                 ))}
             </List>
-            <Button variant="contained" color="primary" disabled={!hasItems(items)} onClick={() => history.push("/checkout", {store: props.location.state.store, items })}>Checkout</Button>
+            <Button variant="contained" color="primary" disabled={!hasItems(items)} onClick={() => history.push("/checkout", { store: props.location.state.store, items })}>Checkout</Button>
         </Container>
     );
 }
