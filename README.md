@@ -45,10 +45,10 @@ Clone the repo
 
 ### Dependency
 + React
-⋅⋅* Redux
-⋅⋅* React-router-dom
-⋅⋅* Material-UI
-⋅⋅* react-google-map
-⋅⋅* react-calendar
-⋅⋅* react-date-picker
++ Redux
++ React-router-dom
++ Material-UI
++ react-google-map
++ react-calendar
++ react-date-picker
 
