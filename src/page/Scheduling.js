@@ -6,8 +6,7 @@ import TimeKeeper from 'react-timekeeper';
 import { orders } from "../App";
 import BackButtom from '../component/backButton';
 
-
-
+// SCHEDULING PAGE
 const orderFor = (orderNumber) => {
     const state = orders.getState();
     return state[orderNumber];

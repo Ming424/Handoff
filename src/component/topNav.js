@@ -14,6 +14,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { orders } from '../App';
 import logo from '../asset/logo.png';
 
+// TOP NAVIGATION WITH LOGO, SEARCH, NOTIFICATION
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,

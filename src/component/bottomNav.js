@@ -6,9 +6,8 @@ import StoreIcon from '@material-ui/icons/Store';
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
+// BOTTON NAVIGATION COMPONENT
 export default function SimpleBottomNavigation(props) {
-
-
   const pathname = window.location.pathname;
   const [value, setValue] = useState(pathname);
 

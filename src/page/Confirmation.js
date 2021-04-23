@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 import BackButtom from '../component/backButton';
 import Map from "../component/map";
 
+// CONFIRM PAGE
 export function Confirmation(props) {
     const [duration, setDuration] = useState("");
     const [traffic, setTraffic] = useState("");

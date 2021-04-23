@@ -7,12 +7,14 @@ const containerStyle = {
     margin: "auto"
 };
 
+// MAP COMPONENT
 function Map(props) {
     const [directions, setDirections] = useState(null);
     const { isLoaded } = useJsApiLoader({
         googleMapsApiKey: "AIzaSyA06QKC8vg76n-N22v64aFHyS7EZBfkTTo"
     });
 
+    // calculate routine time and status
     const computeDuration = (response) => {
         if (response.routes && response.routes.length) {
             const raw = response.routes.shift().legs.reduce((total, leg) => total += leg.duration.value, 0);

@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import BackButtom from '../component/backButton';
 import { QuantitySelector } from "../component/quantity-selector";
 
+// STORE ITEMS LIST
 const hasItems = (items) => {
     for (let name in items) {
         if (items[name].quantity) {

@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { orders } from "../App";
 
+// ORDER OVERVIEW ITEMS
 const OrderCard = (props) => {
 
   const history = useHistory();

@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import profPic from '../asset/profile.jpg';
 
+// USER PAGE
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'block',

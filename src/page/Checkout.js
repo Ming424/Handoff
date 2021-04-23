@@ -6,6 +6,8 @@ import { orders } from '../App';
 import BackButtom from '../component/backButton';
 import { QuantitySelector } from "../component/quantity-selector";
 
+// CHECK OUT PAGE
+
 const TAX_RATE = 0.15;
 
 const lineItemTotal = (item) => {
@@ -20,6 +22,7 @@ const taxOn = (subTotal) => {
     return (subTotal * TAX_RATE);
 }
 
+// round number
 const beautify = (amount) => {
     return amount.toFixed(2);
 }

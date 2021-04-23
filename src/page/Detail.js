@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { orders } from '../App';
 import BackButton from '../component/backButton';
 
+// ORDER DETAIL PAGE
 const orderFor = (orderNumber) => {
     const state = orders.getState();
     return state[orderNumber];
