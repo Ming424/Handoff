@@ -44,11 +44,11 @@ Clone the repo
 `npm start`
 
 ### Dependency
-React
-Redux
-React-router-dom
-Material-UI
-react-google-map
-react-calendar
-react-date-picker
+*React
+*Redux
+*React-router-dom
+*Material-UI
+*react-google-map
+*react-calendar
+*react-date-picker
 
