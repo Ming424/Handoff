@@ -7,26 +7,26 @@ Handoff presents our solution for the buy-online-and-pickup-in-store (BOPS) meth
 
 ### Screenshots
 Dashboard\
-![Screenshot 2021-04-23 114844](https://user-images.githubusercontent.com/37958655/115896929-ed7def80-a429-11eb-8a63-8a5e64310d8a.jpg)
+![Screenshot 2021-04-23 114844](https://user-images.githubusercontent.com/37958655/115896929-ed7def80-a429-11eb-8a63-8a5e64310d8a.jpg)\
 Mobile-friendly\
-![Screenshot 2021-04-23 114859](https://user-images.githubusercontent.com/37958655/115897059-09819100-a42a-11eb-82b2-bf6c678fdcf4.jpg)
+![Screenshot 2021-04-23 114859](https://user-images.githubusercontent.com/37958655/115897059-09819100-a42a-11eb-82b2-bf6c678fdcf4.jpg)\
 Piking up product\
-![Screenshot 2021-04-23 115025](https://user-images.githubusercontent.com/37958655/115897477-772dbd00-a42a-11eb-8bfc-d85cf9817bbc.jpg)
+![Screenshot 2021-04-23 115025](https://user-images.githubusercontent.com/37958655/115897477-772dbd00-a42a-11eb-8bfc-d85cf9817bbc.jpg)\
 Checkout\
-![Screenshot 2021-04-23 115042](https://user-images.githubusercontent.com/37958655/115897504-7d239e00-a42a-11eb-8335-50c8a601173f.jpg)
+![Screenshot 2021-04-23 115042](https://user-images.githubusercontent.com/37958655/115897504-7d239e00-a42a-11eb-8335-50c8a601173f.jpg)\
 Order detail\
-![Screenshot 2021-04-23 115117](https://user-images.githubusercontent.com/37958655/115897555-8ad92380-a42a-11eb-8481-41f5df6997d1.jpg)
+![Screenshot 2021-04-23 115117](https://user-images.githubusercontent.com/37958655/115897555-8ad92380-a42a-11eb-8481-41f5df6997d1.jpg)\
 Scheduling for a pick-up\
-![Screenshot 2021-04-23 115137](https://user-images.githubusercontent.com/37958655/115897574-90cf0480-a42a-11eb-9176-eefd041f074b.jpg)
+![Screenshot 2021-04-23 115137](https://user-images.githubusercontent.com/37958655/115897574-90cf0480-a42a-11eb-9176-eefd041f074b.jpg)\
 Pick up action\
-![Screenshot 2021-04-23 115439](https://user-images.githubusercontent.com/37958655/115897716-b956fe80-a42a-11eb-9010-5f4342f61057.jpg)
+![Screenshot 2021-04-23 115439](https://user-images.githubusercontent.com/37958655/115897716-b956fe80-a42a-11eb-9010-5f4342f61057.jpg)\
 Dashboard\
-![Screenshot 2021-04-23 115538](https://user-images.githubusercontent.com/37958655/115897820-d7246380-a42a-11eb-8e75-4eea53c783ad.jpg)
+![Screenshot 2021-04-23 115538](https://user-images.githubusercontent.com/37958655/115897820-d7246380-a42a-11eb-8e75-4eea53c783ad.jpg)\
 Notification support\
-![Screenshot 2021-04-23 115559](https://user-images.githubusercontent.com/37958655/115897867-e60b1600-a42a-11eb-9689-ed7ddd74e23e.jpg)
+![Screenshot 2021-04-23 115559](https://user-images.githubusercontent.com/37958655/115897867-e60b1600-a42a-11eb-9689-ed7ddd74e23e.jpg)\
 User page\
-![Screenshot 2021-04-23 115225](https://user-images.githubusercontent.com/37958655/115897586-94628b80-a42a-11eb-9bda-24aeab8c5fba.jpg)
+![Screenshot 2021-04-23 115225](https://user-images.githubusercontent.com/37958655/115897586-94628b80-a42a-11eb-9bda-24aeab8c5fba.jpg)\
 
 ### How to run it
-`npm i`
+`npm i`\
 `npm start`
