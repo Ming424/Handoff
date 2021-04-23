@@ -9,8 +9,10 @@ Handoff presents our solution for the buy-online-and-pickup-in-store (BOPS) meth
 Dashboard\
 ![Screenshot 2021-04-23 114844](https://user-images.githubusercontent.com/37958655/115896929-ed7def80-a429-11eb-8a63-8a5e64310d8a.jpg)
 
-Mobile-friendly\
-![Screenshot 2021-04-23 114859](https://user-images.githubusercontent.com/37958655/115897059-09819100-a42a-11eb-82b2-bf6c678fdcf4.jpg)
+On mobile\
+![Screenshot 2021-04-23 114859](https://user-images.githubusercontent.com/37958655/115898585-b7da0600-a42b-11eb-8cda-3c34db975465.jpg)
+
+
 
 Piking up product\
 ![Screenshot 2021-04-23 115025](https://user-images.githubusercontent.com/37958655/115897477-772dbd00-a42a-11eb-8bfc-d85cf9817bbc.jpg)
