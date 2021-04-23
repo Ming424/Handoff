@@ -39,5 +39,16 @@ User page\
 ![Screenshot 2021-04-23 115225](https://user-images.githubusercontent.com/37958655/115897586-94628b80-a42a-11eb-9bda-24aeab8c5fba.jpg)
 
 ### How to run it
+Clone the repo
 `npm i`\
 `npm start`
+
+### Dependency
+React
+Redux
+React-router-dom
+Material-UI
+react-google-map
+react-calendar
+react-date-picker
+
