@@ -35,7 +35,7 @@ Dashboard\
 Notification support\
 ![Screenshot 2021-04-23 115559](https://user-images.githubusercontent.com/37958655/115897867-e60b1600-a42a-11eb-9689-ed7ddd74e23e.jpg)
 
-User page\
+User page that never gonna give you up (Video)\
 ![Screenshot 2021-04-23 115225](https://user-images.githubusercontent.com/37958655/115897586-94628b80-a42a-11eb-9bda-24aeab8c5fba.jpg)
 
 ### How to run it
