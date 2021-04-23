@@ -6,8 +6,7 @@ import { orders } from "../App";
 import { useHistory } from "react-router";
 import BackButtom from '../component/backButton';
 
-
-
+// SCHEDULING PAGE
 const orderFor = (orderNumber) => {
     const state = orders.getState();
     return state[orderNumber];

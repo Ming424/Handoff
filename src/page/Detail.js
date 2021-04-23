@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { orders } from '../App';
 import BackButton from '../component/backButton';
 
+// ORDER DETAIL PAGE
 const orderFor = (orderNumber) => {
     const state = orders.getState();
     return state[orderNumber];
@@ -71,7 +72,7 @@ const Detail = (props) => {
     const history = useHistory();
 
     return order ? (
-        <Card   className={classes.root}>
+        <Card className={classes.root}>
             <BackButton />
                 <CardContent className={classes.header}>
                     <Typography style={{ textTransform: "capitalize" }} variant="h4">

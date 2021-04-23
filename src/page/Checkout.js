@@ -22,6 +22,7 @@ const taxOn = (subTotal) => {
     return (subTotal * TAX_RATE);
 }
 
+// round number
 const beautify = (amount) => {
     return amount.toFixed(2);
 }

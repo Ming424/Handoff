@@ -5,6 +5,7 @@ import { Button } from "@material-ui/core";
 import MapIcon from '@material-ui/icons/Map';
 import BackButtom from '../component/backButton';
 
+// CONFIRM PAGE
 export function Confirmation(props) {
     const [duration, setDuration] = useState("");
     const [traffic, setTraffic] = useState("");
