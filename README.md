@@ -44,7 +44,7 @@ Clone the repo
 `npm start`
 
 ### Dependency
-⋅⋅* React
++ React
 ⋅⋅* Redux
 ⋅⋅* React-router-dom
 ⋅⋅* Material-UI
