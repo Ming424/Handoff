@@ -6,6 +6,8 @@ import { orders } from '../App';
 import { QuantitySelector } from "../component/quantity-selector";
 import BackButtom from '../component/backButton';
 
+// CHECK OUT PAGE
+
 const TAX_RATE = 0.15;
 
 const lineItemTotal = (item) => {

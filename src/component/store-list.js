@@ -27,6 +27,7 @@ import workchair from "../asset/workchair.png";
 import ink from "../asset/ink.png";
 import inkcolor from "../asset/inkcolor.png";
 
+// STORE LIST
 const stores = [
     {
         name: "Microsoft Store",
@@ -43,7 +44,7 @@ const stores = [
             {id: "09992232", name: "Galaxy Z Fold2 5G (Mystic Black)", price: 2319.99, image: samsungMysticBlack},
             {id: "09924543", name: "Galaxy Z Flip 5G", price: 1579.99, image: galaxyFlip},
         ],
-        processingTime: 300000
+        processingTime: 0
     },
     {
         name: "Apple Sainte-Catherine",

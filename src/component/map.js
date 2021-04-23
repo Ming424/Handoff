@@ -7,6 +7,7 @@ const containerStyle = {
     margin: "auto"
 };
 
+// MAP COMPONENT
 function Map(props) {
     const [directions, setDirections] = useState(null);
     const { isLoaded } = useJsApiLoader({

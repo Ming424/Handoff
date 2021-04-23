@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import profPic from '../asset/profile.jpg'
 import { Container } from '@material-ui/core';
 
+// USER PAGE
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'block',

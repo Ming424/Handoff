@@ -22,9 +22,7 @@ export const orders = createStore(reducer);
 
 function App() {
 
-  useEffect(() => {
-    document.title = "Handoff";
-  })
+  useEffect(() => { document.title = "Handoff"; });
 
   return (
     <Router>

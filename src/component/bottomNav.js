@@ -6,9 +6,8 @@ import StoreIcon from '@material-ui/icons/Store';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import { Link } from "react-router-dom";
 
+// BOTTON NAVIGATION COMPONENT
 export default function SimpleBottomNavigation(props) {
-
-
   const pathname = window.location.pathname;
   const [value, setValue] = useState(pathname);
 
@@ -19,9 +18,7 @@ export default function SimpleBottomNavigation(props) {
         showLabels 
         style={style_BottomNav} 
         value={value} 
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }} 
+        onChange={(event, newValue) => { setValue(newValue); }} 
         >
         <BottomNavigationAction label="Stores" value="/" icon={<StoreIcon />} component={Link} to='/' />
         <BottomNavigationAction label="Dashboard" value="/history" icon={<DashboardIcon />} component={Link} to='/history' />

@@ -3,9 +3,7 @@ import { useHistory } from "react-router-dom";
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { Button } from "@material-ui/core";
 
-// import BackButtom from '../component/backButtom';
-// <BackButtom />
-
+// BACK BUTTOM COMPONENT
 export default function BackButtom() {
 
   const history = useHistory();
@@ -13,10 +11,10 @@ export default function BackButtom() {
 
   return (
     <Button style={backButtonStyle} 
-    variant="outlined"  
-    color="primary" 
-    component="span"
-     onClick={goBack}>
+      variant="outlined"  
+      color="primary" 
+      component="span"
+      onClick={goBack}>
         <ChevronLeftIcon /> Back
     </Button>
   );

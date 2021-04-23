@@ -1,6 +1,7 @@
 import OrdersList from "../component/order-list";
 
-const Dashboard = (props) => {
+// ORDER OVERVIEW PAGE
+const Dashboard = () => {
     return (
         <div>
             <h1>DASHBOARD</h1>

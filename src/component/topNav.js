@@ -14,6 +14,7 @@ import { orders } from '../App';
 import { ShoppingCart } from '@material-ui/icons';
 import logo from '../asset/logo.png';
 
+// TOP NAVIGATION WITH LOGO, SEARCH, NOTIFICATION
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
